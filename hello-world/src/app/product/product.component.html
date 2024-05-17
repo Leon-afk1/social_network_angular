@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+    <img [src]="product.img" class="card-img-top" alt="{{ product.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">ID: {{ product.prd_id }}</li>
+      <li class="list-group-item">Price: {{ product.price }}$</li>
+      <li class="list-group-item">Company: {{ product.company }}</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+</div>
