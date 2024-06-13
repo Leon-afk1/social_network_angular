@@ -1,19 +1,22 @@
-<form>
-    <div class="form-group row">
-        <label for="inputTitle" class="col-sm-2 col-form-label">Titre</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputTitle" placeholder="Tarte aux pommes">
+<form [formGroup]="recipeForm" (ngSubmit)="onFormSubmit()">
+    <div class="form-group row justify-content-center">
+        <label for="inputTitle" class="col-sm-1 col-form-label">Titre</label>
+        <div class="col-sm-7">
+            <input type="text" formControlName="title" class="form-control" id="inputTitle" placeholder="Tarte aux pommes">
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="form-group col-md-2">
           <label for="inputCategory">Category</label>
-          <input type="text" class="form-control" id="inputCategory" placeholder="Italien">
+          <input type="text" formControlName="category" class="form-control" id="inputCategory" placeholder="Italien">
         </div>
         <div class="form-group col-md-2">
             <label for="inputType">Type</label>
-            <select id="inputType" class="form-control">
+            <select id="inputType" formControlName="type" class="form-control">
                 <option selected>Entrée</option>
                 <option>Plat</option>
                 <option>Déssert</option>
@@ -22,15 +25,24 @@
         </div>
         <div class="form-group col-md-2">
             <label for="inputDuration">Durée</label>
-            <input type="date" class="form-control" id="inputDuration">
+            <input type="time" formControlName="duration" class="form-control" id="inputDuration">
         </div>
         <div class="form-group col-md-2">
           <label for="inputPersonnes">Personnes</label>
-          <input type="number" class="form-control" id="inputPersonnes" placeholder="4">
+          <input type="number" formControlName="nbPeople" class="form-control" id="inputPersonnes" value=4>
         </div>
         <div class="form-group col-md-2">
             <label for="inputDifficulty">Difficulté</label>
-            <input type="number" class="form-control" id="inputDifficulty" placeholder="4">
+            <input type="number" formControlName="difficulty" class="form-control" id="inputDifficulty" value="5">
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6" *ngfor="let ingredient of ingredients; index as idx">
+            <label for="inputIngredient">Ingrédient</label>
+            <input type="text" formControlName="idx.name" class="form-control" id="inputIngredient" placeholder="Pommes">
+        </div>
+        <div class="col-md-6">
+
         </div>
     </div>
 </form>
