@@ -9,31 +9,29 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RecipeService {
   queryRecipe!: Recipe;
-
+  private apiUrl = 'http://localhost:3000/recipes';
   constructor(private http : HttpClient) { }
 
   getRecipes(): Observable<Recipe[]>{
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes');
+    return this.http.get<Recipe[]>(this.apiUrl);
   }
 
   getRecipeByID(id: number): Recipe{
-    this.http.get<Recipe>('http://localhost:3000/recipes/' + id).subscribe((recipe: Recipe) => {
+    this.http.get<Recipe>(this.apiUrl + '/' + id).subscribe((recipe: Recipe) => {
       this.queryRecipe = recipe;
     });
     return this.queryRecipe;
   }
 
   addRecipe(recipe: Recipe): Observable<Recipe>{
-    return this.http.post<Recipe>('http://localhost:3000/recipes', recipe);
+    return this.http.post<Recipe>(this.apiUrl, recipe);
   }
 
   removeRecipe(id: number): Observable<Recipe>{
-    return this.http.delete<Recipe>('http://localhost:3000/recipes/' + id);
+    return this.http.delete<Recipe>(this.apiUrl + '/' + id);
   }
 
   modifyRecipe(recipe: Recipe): Observable<Recipe>{
-    return this.http.put<Recipe>('http://localhost:3000/recipes/' + recipe.id, recipe);
+    return this.http.put<Recipe>(this.apiUrl + '/' + recipe.id, recipe);
   }
-
-
 }

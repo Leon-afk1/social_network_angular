@@ -1,5 +1,26 @@
 {
-  "recipes":[
-    
+  "recipes": [
+    {
+      "instructions": [
+        {
+          "order": 1,
+          "text": ""
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "",
+          "quantity": "",
+          "unit": ""
+        }
+      ],
+      "id": 363,
+      "title": "",
+      "category": "",
+      "type": "",
+      "difficulty": "",
+      "nbPeople": "",
+      "duration": ""
+    }
   ]
 }

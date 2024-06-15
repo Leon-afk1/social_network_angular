@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RecipeService } from './recipe.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,9 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
