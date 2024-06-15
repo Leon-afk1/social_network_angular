@@ -16,11 +16,8 @@ export class RecipeService {
     return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-  getRecipeByID(id: number): Recipe{
-    this.http.get<Recipe>(this.apiUrl + '/' + id).subscribe((recipe: Recipe) => {
-      this.queryRecipe = recipe;
-    });
-    return this.queryRecipe;
+  getRecipeByID(id: number): Observable<Recipe>{
+    return this.http.get<Recipe>(this.apiUrl + '/' + id);
   }
 
   addRecipe(recipe: Recipe): Observable<Recipe>{
