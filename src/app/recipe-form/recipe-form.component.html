@@ -1,0 +1,79 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onFormSubmit()">
+    <div class="form-group row justify-content-center">
+        <label for="inputTitle" class="col-sm-1 col-form-label">Titre</label>
+        <div class="col-sm-7">
+            <input type="text" formControlName="title" class="form-control" id="inputTitle" placeholder="Tarte aux pommes">
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="form-group col-md-2">
+          <label for="inputCategory">Category</label>
+          <input type="text" formControlName="category" class="form-control" id="inputCategory" placeholder="Italien">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputType">Type</label>
+            <select id="inputType" formControlName="type" class="form-control">
+                <option selected>Entrée</option>
+                <option>Plat</option>
+                <option>Déssert</option>
+                <option>Autre</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputDuration">Durée</label>
+            <input type="time" formControlName="duration" class="form-control" id="inputDuration">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputPersonnes">Personnes</label>
+          <input type="number" formControlName="nbPeople" class="form-control" id="inputPersonnes" value=4>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputDifficulty">Difficulté</label>
+            <input type="number" formControlName="difficulty" class="form-control" id="inputDifficulty" value="5">
+        </div>
+    </div>
+
+    <div class="row">
+        <div formArrayName="instructions" class="col-md-12">
+          <div *ngFor="let instruction of instructions.controls; let i=index" class="form-group row">
+            <label for="inputInstruction{{i}}" class="col-md-2 col-form-label">Instruction {{i + 1}}</label>
+            <div class="col-md-7">
+              <input type="text" [formControlName]="i" class="form-control" id="inputInstruction{{i}}" placeholder="Épluchez les pommes">
+            </div>
+            <div class="col-md-3">
+              <button type="button" (click)="removeInstruction(i)" class="btn btn-danger" [disabled]="i === 0">Supprimer</button>
+            </div>
+          </div>
+          <button type="button" (click)="addInstruction()" class="btn btn-secondary">Ajouter une instruction</button>
+        </div>
+    </div>
+      
+    <div formArrayName="ingredients" class="row">
+        <div *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i" class="form-group col-md-12">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="inputIngredient{{i}}">Ingrédient</label>
+                    <input type="text" formControlName="name" class="form-control" id="inputIngredient{{i}}" placeholder="Pommes">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputQuantity{{i}}">Quantité</label>
+                    <input type="text" formControlName="quantity" class="form-control" id="inputQuantity{{i}}" placeholder="3">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputUnit{{i}}">Unité</label>
+                    <input type="text" formControlName="unit" class="form-control" id="inputUnit{{i}}" placeholder="kg">
+                </div>
+                <div class="form-group col-md-2 align-self-end">
+                    <button type="button" (click)="removeIngredient(i)" class="btn btn-danger" [disabled]="i === 0">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button type="button" (click)="addIngredient()" class="btn btn-secondary">Ajouter un ingrédient</button>
+    </div>
+</form>
