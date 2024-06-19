@@ -31,4 +31,8 @@ export class RecipeService {
   modifyRecipe(recipe: Recipe): Observable<Recipe>{
     return this.http.put<Recipe>(this.apiUrl + '/' + recipe.id, recipe);
   }
+
+  searchRecipes(query: string): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}?q=${query}`);
+  }
 }

@@ -8,7 +8,9 @@
             <div class="search-container" #searchContainer>
                 <input type="text" placeholder="Rechercher une recette" (input)="onSearch($event)">
                 <ul class="suggestions" *ngIf="suggestions.length > 0">
-                    <li *ngFor="let suggestion of suggestions" (click)="onSelectSuggestion(suggestion)">{{ suggestion }}</li>
+                    <li *ngFor="let suggestion of suggestions">
+                      <a [routerLink]="['/recipe', suggestion.id]">{{ suggestion.title }}</a>
+                    </li>
                 </ul>
             </div>
         </li>

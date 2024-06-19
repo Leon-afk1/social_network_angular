@@ -1,4 +1,6 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { RecipeService } from '../recipe.service';
+import { Recipe } from '../../classes/recipe';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,8 +9,10 @@ import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 })
 export class SidebarComponent {
   isLoggedIn = false;
-  suggestions: string[] = [];
+  suggestions: Recipe[] = [];
   sidebarVisible = false;
+
+  constructor(private recipeService: RecipeService) {}
 
   @ViewChild('searchContainer') searchContainer!: ElementRef;
   @ViewChild('sidebar') sidebar!: ElementRef;
@@ -19,12 +23,9 @@ export class SidebarComponent {
 
   onSearch(event: any) {
     const query = event.target.value.toLowerCase();
-    this.suggestions = this.getSuggestions(query);
-  }
-
-  getSuggestions(query: string): string[] {
-    const allRecipes = ['Recette 1', 'Recette 2', 'Recette 3', 'Recette 4', 'Recette 5'];
-    return allRecipes.filter(recipe => recipe.toLowerCase().includes(query));
+    this.recipeService.searchRecipes(query).subscribe(data => {
+      this.suggestions = data; 
+    });
   }
 
   onSelectSuggestion(suggestion: string) {
