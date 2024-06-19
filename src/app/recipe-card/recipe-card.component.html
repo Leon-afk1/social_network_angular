@@ -1,12 +1,37 @@
-<div class="card p-2" [routerLink]="['/recipe', recipe.id]">
-    <div class="card-header bg-primary text-white">
-      <h2>{{ recipe.title }}</h2>
+<div class="recipe-card" [routerLink]="['/recipe', recipe.id]">
+  <div class="recipe-card-header">
+    <img class="recipe-image" src="assets/recipe1.jpg" alt="Recipe preview image">
+    <div class="rating">
+      <img class="rating-icon" src="assets/icons/star-full.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star-full.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star.svg" alt="Rating star">
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Category: {{ recipe.category }}</h5>
-      <p class="card-text"><strong>Type:</strong> {{ recipe.type }}</p>
-      <p class="card-text"><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
-      <p class="card-text"><strong>Number of People:</strong> {{ recipe.nbPeople }}</p>
-      <p class="card-text"><strong>Duration:</strong> {{ recipe.duration }} minutes</p>
+    <h3>{{ recipe.title }}</h3>
+  </div>
+  <div class="recipe-card-body">
+    <!-- <div class="recipe-info">
+      <img src="assets/icons/duration.svg" alt="duration">
+      <div class="info-body">
+        {{ recipe.duration }}
+      </div>
+    </div> -->
+    <div class="recipe-info">
+      <div *ngIf="recipe.difficulty <= 4">
+        <img src="assets/icons/difficulty-easy.svg" alt="difficulty">
+      </div>
+      <div *ngIf="recipe.difficulty > 4 && recipe.difficulty <= 7">
+        <img src="assets/icons/difficulty-medium.svg" alt="difficulty">
+      </div>
+      <div *ngIf="recipe.difficulty >= 8">
+        <img src="assets/icons/difficulty-hard.svg" alt="difficulty">
+      </div>
+      <div class="info-body">{{ recipe.difficulty }}</div>
     </div>
+    <div class="recipe-info">
+      <img src="assets/icons/people.svg" alt="people">
+      <div class="info-body">{{ recipe.nbPeople }}</div>
+    </div>
+  </div>
 </div>
