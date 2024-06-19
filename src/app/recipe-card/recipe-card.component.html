@@ -1,0 +1,12 @@
+<div class="card p-2" [routerLink]="['/recipe', recipe.id]">
+    <div class="card-header bg-primary text-white">
+      <h2>{{ recipe.title }}</h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Category: {{ recipe.category }}</h5>
+      <p class="card-text"><strong>Type:</strong> {{ recipe.type }}</p>
+      <p class="card-text"><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
+      <p class="card-text"><strong>Number of People:</strong> {{ recipe.nbPeople }}</p>
+      <p class="card-text"><strong>Duration:</strong> {{ recipe.duration }} minutes</p>
+    </div>
+</div>

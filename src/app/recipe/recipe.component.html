@@ -1,0 +1,36 @@
+<div class="recipe-details">
+    <h1>{{ recipe.title }}</h1>
+
+    <img src="assets/recipe1.jpg" alt="recipe image">
+    
+    <div class="recipe-informations">
+      <div class="info">
+        <strong>Durée:</strong> {{ recipe.duration }} minutes
+      </div>
+      <div class="info">
+        <strong>Nombre de personnes:</strong> {{ recipe.nbPeople }}
+      </div>
+      <div class="info">
+        <strong>Difficulté:</strong> {{ recipe.difficulty }}
+      </div>
+    </div>
+    
+    <div class="recipe-part">
+      <div class="part-header">Ingrédients:</div>
+      <div class="ingredients">
+        <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
+          <div class="ing-img"></div>
+          {{ ingredient.quantity }} {{ ingredient.unit }} <br/> de {{ ingredient.name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-part">
+      <div class="part-header">Instructions:</div>
+      <ol class="instructions">
+        <li class="instruction" *ngFor="let instruction of recipe.instructions">
+          {{ instruction.text }}
+        </li>
+      </ol>
+    </div>
+</div>
