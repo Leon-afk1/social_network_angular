@@ -1,4 +1,4 @@
-<div class="card p-2">
+<div class="card p-2" [routerLink]="['/recipe', recipe.id]">
     <div class="card-header bg-primary text-white">
       <h2>{{ recipe.title }}</h2>
     </div>
@@ -9,4 +9,4 @@
       <p class="card-text"><strong>Number of People:</strong> {{ recipe.nbPeople }}</p>
       <p class="card-text"><strong>Duration:</strong> {{ recipe.duration }} minutes</p>
     </div>
-  </div>
+</div>

@@ -7,6 +7,7 @@ export class Recipe {
     public ingredients: Ingredient[],
     public id: number,
     public title: String,
+    public description: String,
     public category: String,
     public type: String,
     public difficulty: number,
@@ -18,6 +19,7 @@ export class Recipe {
     this.ingredients = ingredients;
     this.instructions = instructions;
     this.title = title;
+    this.description = description;
     this.category = category;
     this.type = type;
     this.difficulty = difficulty;

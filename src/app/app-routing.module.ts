@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 // import { ProfileComponent } from './profile/profile.component';
 import { RecipeCardListComponent } from './recipe-card-list/recipe-card-list.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   // { path: 'profile', component: ProfileComponent },
   { path: 'recipe-form', component: RecipeFormComponent },
   { path: 'recipes', component: RecipeCardListComponent },
+  { path: 'recipe/:id', component: RecipeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];

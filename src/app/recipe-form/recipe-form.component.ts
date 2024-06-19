@@ -69,6 +69,7 @@ export class RecipeFormComponent implements OnInit {
       const instructions: Instruction[] = this.instructions.value.map((text: string, index: number) => new Instruction(index + 1, text));
       const ingredients: Ingredient[] = this.ingredients.value.map((ing: any) => new Ingredient(ing.name, ing.quantity, ing.unit));
       const title = this.recipeForm.value.title || '';
+      const description = '';
       const category = this.recipeForm.value.category || '';
       const type = this.recipeForm.value.type || '';
       const difficulty: number = this.recipeForm.value.difficulty || 0;
@@ -80,6 +81,7 @@ export class RecipeFormComponent implements OnInit {
         ingredients,
         Math.floor(Math.random() * 1000), // Génère un ID aléatoire
         title,
+        description,
         category,
         type,
         difficulty,
