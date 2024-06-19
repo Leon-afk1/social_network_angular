@@ -1,4 +1,3 @@
-// src/app/app.component.ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,9 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showLogin = false; // Define the showLogin property
+  showSignIn = false;
+  showLogin = false;
 
-  toggleLogin() {
-    this.showLogin = !this.showLogin; // Method to toggle login visibility
+  showSignInOverlay() {
+    this.showSignIn = true;
+  }
+
+  closeSignInOverlay() {
+    this.showSignIn = false;
+  }
+
+  showLoginOverlay() {
+    this.showLogin = true;
+  }
+
+  closeLoginOverlay() {
+    this.showLogin = false;
   }
 }

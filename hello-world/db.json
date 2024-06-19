@@ -1,6 +1,22 @@
 {
-    "users": [
-      { "id": 1, "email": "user1@example.com", "password": "password123" },
-      { "id": 2, "email": "user2@example.com", "password": "password123" }
-    ]
-  }
+  "users": [
+    {
+      "id": "1",
+      "email": "user1@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "email": "user2@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "81f1",
+      "name": "yikes",
+      "surname": "daniel",
+      "username": "realdaniel",
+      "email": "daniel@daniel.com",
+      "password": "test"
+    }
+  ]
+}
