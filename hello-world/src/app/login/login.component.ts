@@ -1,7 +1,9 @@
-// src/app/login/login.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string = '';
   @Output() close = new EventEmitter<void>();
+  apiUrl = 'http://localhost:3000/users'; // JSON server URL
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.loginForm = this.fb.group({
@@ -19,21 +23,39 @@ export class LoginComponent {
     });
   }
 
+  get email(): AbstractControl | null {
+    return this.loginForm.get('email');
+  }
+
+  get password(): AbstractControl | null {
+    return this.loginForm.get('password');
+  }
+
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-      this.http.get<any[]>(`http://localhost:3000/users?email=${email}&password=${password}`)
-        .subscribe(users => {
-          if (users.length > 0) {
-            // Successfully authenticated
-            console.log('Login successful', users[0]);
-            this.closeOverlay();
-          } else {
-            // Authentication failed
-            console.log('Login failed');
-          }
-        });
+
+      this.checkUserCredentials(email, password).subscribe(user => {
+        if (user) {
+          console.log('Login successful', user);
+          this.closeOverlay();
+        } else {
+          this.errorMessage = 'Invalid email or password';
+        }
+      });
+    } else {
+      this.errorMessage = 'Please fill in all required fields.';
     }
+  }
+
+  checkUserCredentials(email: string, password: string): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
+      map(users => users.length > 0 ? users[0] : null),
+      catchError(error => {
+        console.error('Error checking credentials:', error);
+        return of(null);
+      })
+    );
   }
 
   closeOverlay() {

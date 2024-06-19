@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
@@ -11,6 +12,7 @@ import { map } from 'rxjs/operators';
 })
 export class SignInComponent {
   signInForm: FormGroup;
+  errorMessage: string = '';
   @Output() close = new EventEmitter<void>();
   @Output() showLogin = new EventEmitter<void>();
   apiUrl = 'http://localhost:3000/users'; // JSON server URL
@@ -25,33 +27,64 @@ export class SignInComponent {
     });
   }
 
+  get name(): AbstractControl | null {
+    return this.signInForm.get('name');
+  }
+
+  get surname(): AbstractControl | null {
+    return this.signInForm.get('surname');
+  }
+
+  get username(): AbstractControl | null {
+    return this.signInForm.get('username');
+  }
+
+  get email(): AbstractControl | null {
+    return this.signInForm.get('email');
+  }
+
+  get password(): AbstractControl | null {
+    return this.signInForm.get('password');
+  }
+
   onSubmit() {
     if (this.signInForm.valid) {
       const { name, surname, username, email, password } = this.signInForm.value;
 
       this.checkEmailExists(email).subscribe(exists => {
         if (exists) {
-          console.log('Email already exists');
+          this.errorMessage = 'Email already exists';
         } else {
           this.addUser({ name, surname, username, email, password }).subscribe(response => {
             console.log('Sign In successful', response);
             this.loginAndClose();
+          }, error => {
+            this.errorMessage = 'Error signing up. Please try again.';
           });
         }
       });
     } else {
-      console.log('Form is not valid');
+      this.errorMessage = 'Please fill in all required fields.';
     }
   }
 
   checkEmailExists(email: string): Observable<boolean> {
     return this.http.get<any[]>(`${this.apiUrl}?email=${email}`).pipe(
-      map((users: any[]) => users.length > 0)
+      map((users: any[]) => users.length > 0),
+      catchError(error => {
+        console.error('Error checking email:', error);
+        return of(false);
+      })
     );
   }
 
   addUser(user: any): Observable<any> {
-    return this.http.post(this.apiUrl, user);
+    return this.http.post(this.apiUrl, user).pipe(
+      catchError(error => {
+        console.error('Error adding user:', error);
+        return of(null);
+      })
+    );
   }
 
   closeOverlay() {

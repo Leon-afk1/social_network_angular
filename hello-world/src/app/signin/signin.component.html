@@ -3,22 +3,29 @@
       <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
         <label for="name">Name:</label>
         <input id="name" formControlName="name" type="text">
+        <div *ngIf="name?.invalid && name?.touched" class="error">Name is required</div>
         
         <label for="surname">Surname:</label>
         <input id="surname" formControlName="surname" type="text">
+        <div *ngIf="surname?.invalid && surname?.touched" class="error">Surname is required</div>
         
         <label for="username">Username:</label>
         <input id="username" formControlName="username" type="text">
+        <div *ngIf="username?.invalid && username?.touched" class="error">Username is required</div>
         
         <label for="email">Email:</label>
         <input id="email" formControlName="email" type="email">
+        <div *ngIf="email?.invalid && email?.touched" class="error">Valid email is required</div>
         
         <label for="password">Password:</label>
         <input id="password" formControlName="password" type="password">
+        <div *ngIf="password?.invalid && password?.touched" class="error">Password is required</div>
         
         <button type="submit">Sign In</button>
         <button type="button" (click)="loginAndClose()">Login</button>
         <button type="button" (click)="closeOverlay()">Close</button>
+        
+        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
       </form>
     </div>
   </div>
