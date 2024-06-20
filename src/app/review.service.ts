@@ -12,7 +12,7 @@ export class ReviewService {
   private reviewsUrl = 'http://localhost:3000/reviews';  
   constructor(private http: HttpClient) { }
 
-  getReviews(recipeId: number): Observable<Review[]> {
+  getReviews(recipeId: string): Observable<Review[]> {
     const url = `${this.reviewsUrl}?recipeId=${recipeId}`;
     return this.http.get<Review[]>(url);
   }
@@ -23,7 +23,7 @@ export class ReviewService {
     });
   }
 
-  deleteReview(id: number): Observable<{}> {
+  deleteReview(id: string): Observable<{}> {
     const url = `${this.reviewsUrl}/${id}`;
     return this.http.delete(url);
   }

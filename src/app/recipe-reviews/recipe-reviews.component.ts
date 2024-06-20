@@ -8,7 +8,7 @@ import { ReviewService } from '../review.service';
   styleUrls: ['./recipe-reviews.component.css']
 })
 export class RecipeReviewsComponent implements OnInit {
-  @Input() recipeId!: number;
+  @Input() recipeId!: string;
   reviews: Review[] = [];
 
   constructor(private reviewService: ReviewService) {}
@@ -21,7 +21,7 @@ export class RecipeReviewsComponent implements OnInit {
     this.reviewService.getReviews(this.recipeId).subscribe(reviews => this.reviews = reviews);
   }
 
-  deleteReview(id: number): void {
+  deleteReview(id: string): void {
     this.reviewService.deleteReview(id).subscribe(() => {
       this.reviews = this.reviews.filter(r => r.id !== id);
     });
