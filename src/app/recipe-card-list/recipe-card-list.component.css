@@ -1,6 +1,38 @@
-.cards-list{
-    margin: 2em;
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter-item label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.filter-item select {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.filter-item select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.cards-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 2em;
+    margin: 2em;
 }
