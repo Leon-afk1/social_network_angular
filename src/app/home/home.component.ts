@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../classes/user';
+
 import { Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
+
 
 @Component({
   selector: 'app-home',
@@ -27,4 +30,5 @@ export class HomeComponent implements OnInit {
   navigateToCategory(category: string): void {
     this.router.navigate(['/recipes'], { queryParams: { category: category } });
   }
+
 }

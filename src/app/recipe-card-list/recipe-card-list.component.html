@@ -1,3 +1,6 @@
+
+<div class="cards-list">
+    <app-recipe-card [recipe]="recipe" *ngFor="let recipe of recipes"></app-recipe-card>
 <div class="filter-container">
   <label for="category">Catégorie:</label>
   <select id="category" [(ngModel)]="selectedCategory" (change)="applyFilters()">

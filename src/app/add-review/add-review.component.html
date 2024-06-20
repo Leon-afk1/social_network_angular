@@ -1,0 +1,25 @@
+<div class="add-review-form">
+    <h3>Ajouter un avis</h3>
+    <form (ngSubmit)="addReview()">
+      <div class="form-group">
+        <label for="author">Auteur:</label>
+        <input id="author" [(ngModel)]="newReview.author" name="author" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <div class="rating-input">
+          <span class="star" (click)="setRating(1)" [ngClass]="{'filled': newReview.rating >= 1}">&#9733;</span>
+          <span class="star" (click)="setRating(2)" [ngClass]="{'filled': newReview.rating >= 2}">&#9733;</span>
+          <span class="star" (click)="setRating(3)" [ngClass]="{'filled': newReview.rating >= 3}">&#9733;</span>
+          <span class="star" (click)="setRating(4)" [ngClass]="{'filled': newReview.rating >= 4}">&#9733;</span>
+          <span class="star" (click)="setRating(5)" [ngClass]="{'filled': newReview.rating >= 5}">&#9733;</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="comment">Commentaire:</label>
+        <textarea id="comment" [(ngModel)]="newReview.comment" name="comment" class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter l'avis</button>
+    </form>
+  </div>
+  
