@@ -1,6 +1,11 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../../classes/recipe';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-sidebar',
@@ -11,15 +16,15 @@ export class SidebarComponent {
   isLoggedIn = false;
   suggestions: Recipe[] = [];
   sidebarVisible = false;
+  showSignIn = false;
+  showLogin = false;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService, public authService : AuthService, private router: Router) {}
+  
 
   @ViewChild('searchContainer') searchContainer!: ElementRef;
   @ViewChild('sidebar') sidebar!: ElementRef;
 
-  toggleLogin() {
-    this.isLoggedIn = !this.isLoggedIn;
-  }
 
   onSearch(event: any) {
     const query = event.target.value.toLowerCase();
@@ -47,4 +52,29 @@ export class SidebarComponent {
       this.sidebarVisible = false;
     }
   }
+
+
+  
+  toggleSignIn() {
+    this.showSignIn = !this.showSignIn;
+  }
+
+  toggleLogin() {
+    this.showLogin = !this.showLogin;
+  }
+
+  closeSignIn() {
+    this.showSignIn = false;
+  }
+
+  closeLogin() {
+    this.showLogin = false;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/home'])
+  }
+
+
 }

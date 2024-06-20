@@ -16,7 +16,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { RecipeReviewsComponent } from './recipe-reviews/recipe-reviews.component';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
-
+import { LoginComponent } from './login/login.component';
+import { SignInComponent } from './signin/signin.component';
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     CarouselComponent,
     AddReviewComponent,
     RecipeReviewsComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    LoginComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

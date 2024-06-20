@@ -1,0 +1,18 @@
+<div class="overlay">
+  <div class="login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email">
+      <div *ngIf="email?.invalid && email?.touched" class="error">Valid email is required</div>
+
+      <label for="password">Password:</label>
+      <input id="password" formControlName="password" type="password">
+      <div *ngIf="password?.invalid && password?.touched" class="error">Password is required</div>
+
+      <button type="submit">Login</button>
+      <button type="button" (click)="closeOverlay()">Close</button>
+
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    </form>
+  </div>
+</div>
