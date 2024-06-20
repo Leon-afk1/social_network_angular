@@ -1,0 +1,29 @@
+<div class="menu-icon" [ngClass]="{'icon-white': sidebarVisible, 'icon-black': !sidebarVisible}" (click)="toggleSidebar()">
+    &#9776; 
+</div>
+<nav class="sidebar" [class.visible]="sidebarVisible" #sidebar>
+    <ul>
+        <li><a routerLink="/home">Accueil/Home</a></li>
+        <li>
+            <div class="search-container" #searchContainer>
+                <input type="text" placeholder="Rechercher une recette" (input)="onSearch($event)">
+                <ul class="suggestions" *ngIf="suggestions.length > 0">
+                    <li *ngFor="let suggestion of suggestions">
+                      <a [routerLink]="['/recipe', suggestion.id]">{{ suggestion.title }}</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <ng-container *ngIf="!isLoggedIn">
+            <li><a routerLink="/login">Se connecter</a></li>
+            <li><a routerLink="/register">Créer un compte</a></li>
+        </ng-container>
+        <ng-container *ngIf="isLoggedIn">
+            <li><a routerLink="/logout">Se déconnecter</a></li>
+            <li><a routerLink="/recipe-form">Créer une recette</a></li>
+            <li><a routerLink="/profile">Profil</a></li>
+            <li><a routerLink="/recipes">Recettes</a></li>
+        </ng-container>
+    </ul>
+    <button (click)="toggleLogin()">Toggle Login</button>
+</nav>

@@ -1,0 +1,37 @@
+<div class="recipe-card" [routerLink]="['/recipe', recipe.id]">
+  <div class="recipe-card-header">
+    <img class="recipe-image" src="assets/recipe1.jpg" alt="Recipe preview image">
+    <div class="rating">
+      <img class="rating-icon" src="assets/icons/star-full.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star-full.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star.svg" alt="Rating star">
+      <img class="rating-icon" src="assets/icons/star.svg" alt="Rating star">
+    </div>
+    <h3>{{ recipe.title }}</h3>
+  </div>
+  <div class="recipe-card-body">
+    <!-- <div class="recipe-info">
+      <img src="assets/icons/duration.svg" alt="duration">
+      <div class="info-body">
+        {{ recipe.duration }}
+      </div>
+    </div> -->
+    <div class="recipe-info">
+      <div *ngIf="recipe.difficulty <= 4">
+        <img src="assets/icons/difficulty-easy.svg" alt="difficulty">
+      </div>
+      <div *ngIf="recipe.difficulty > 4 && recipe.difficulty <= 7">
+        <img src="assets/icons/difficulty-medium.svg" alt="difficulty">
+      </div>
+      <div *ngIf="recipe.difficulty >= 8">
+        <img src="assets/icons/difficulty-hard.svg" alt="difficulty">
+      </div>
+      <div class="info-body">{{ recipe.difficulty }}</div>
+    </div>
+    <div class="recipe-info">
+      <img src="assets/icons/people.svg" alt="people">
+      <div class="info-body">{{ recipe.nbPeople }}</div>
+    </div>
+  </div>
+</div>
