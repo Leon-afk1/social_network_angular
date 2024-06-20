@@ -14,7 +14,7 @@
   transition: transform 0.3s ease;
 }
 
-.recipe-card-header:hover {
+.recipe-card:hover .recipe-card-header{
   transform: rotate(-17deg);
 }
 

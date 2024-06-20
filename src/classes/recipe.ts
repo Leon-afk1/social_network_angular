@@ -5,7 +5,7 @@ export class Recipe {
   constructor(
     public instructions: Instruction[],
     public ingredients: Ingredient[],
-    public id: number,
+    public id: string,
     public title: String,
     public description: String,
 

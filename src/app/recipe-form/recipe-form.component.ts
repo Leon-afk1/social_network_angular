@@ -79,7 +79,7 @@ export class RecipeFormComponent implements OnInit {
       const recipe = new Recipe(
         instructions,
         ingredients,
-        Math.floor(Math.random() * 1000), // Génère un ID aléatoire
+        "", 
         title,
         description,
         category,

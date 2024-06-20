@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Recipe } from '../classes/recipe';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +17,16 @@ export class RecipeService {
     return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-  getRecipeByID(id: number): Observable<Recipe>{
+  getRecipeByID(id: string): Observable<Recipe>{
     return this.http.get<Recipe>(this.apiUrl + '/' + id);
   }
 
   addRecipe(recipe: Recipe): Observable<Recipe>{
+    recipe.id = uuidv4();
     return this.http.post<Recipe>(this.apiUrl, recipe);
   }
 
-  removeRecipe(id: number): Observable<Recipe>{
+  removeRecipe(id: string): Observable<Recipe>{
     return this.http.delete<Recipe>(this.apiUrl + '/' + id);
   }
 

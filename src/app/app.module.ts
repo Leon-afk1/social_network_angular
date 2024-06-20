@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CarouselComponent } from './carousel/carousel.component';
 import { RecipeReviewsComponent } from './recipe-reviews/recipe-reviews.component';
 import { AddReviewComponent } from './add-review/add-review.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 
 
@@ -29,7 +30,8 @@ import { AddReviewComponent } from './add-review/add-review.component';
     SidebarComponent,
     CarouselComponent,
     AddReviewComponent,
-    RecipeReviewsComponent
+    RecipeReviewsComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -43,4 +45,5 @@ import { AddReviewComponent } from './add-review/add-review.component';
   providers: [RecipeService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

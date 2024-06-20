@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RecipeComponent implements OnInit {
   recipe: Recipe;
-  id: number;
+  id: string;
 
   constructor(public recipeService: RecipeService, private activatedRoute: ActivatedRoute) { 
-    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '0');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id') || "";
   }
 
   ngOnInit(): void {
