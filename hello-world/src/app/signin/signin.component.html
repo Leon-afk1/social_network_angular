@@ -22,7 +22,7 @@
         <div *ngIf="password?.invalid && password?.touched" class="error">Password is required</div>
         
         <button type="submit">Sign In</button>
-        <button type="button" (click)="loginAndClose()">Login</button>
+        <button type="button" (click)="openLoginOverlay()">Login</button>
         <button type="button" (click)="closeOverlay()">Close</button>
         
         <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ export class LoginComponent {
   @Output() close = new EventEmitter<void>();
   apiUrl = 'http://localhost:3000/users'; // JSON server URL
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private authService: AuthService
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -38,6 +43,7 @@ export class LoginComponent {
       this.checkUserCredentials(email, password).subscribe(user => {
         if (user) {
           console.log('Login successful', user);
+          this.authService.setUserId(user.id);
           this.closeOverlay();
         } else {
           this.errorMessage = 'Invalid email or password';

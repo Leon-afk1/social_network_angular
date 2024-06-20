@@ -1,3 +1,6 @@
-<button (click)="showSignInOverlay()">Sign In</button>
-<app-signin *ngIf="showSignIn" (close)="closeSignInOverlay()" (showLogin)="showLoginOverlay()"></app-signin>
-<app-login *ngIf="showLogin" (close)="closeLoginOverlay()"></app-login>
+<button *ngIf="!authService.isLoggedIn()" (click)="toggleSignIn()">Sign In / Log In</button>
+<button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
+<button *ngIf="authService.isLoggedIn()">Profile</button>
+
+<app-signin *ngIf="showSignIn" (close)="closeSignIn()" (showLogin)="toggleLogin()"></app-signin>
+<app-login *ngIf="showLogin" (close)="closeLogin()"></app-login>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -17,7 +18,11 @@ export class SignInComponent {
   @Output() showLogin = new EventEmitter<void>();
   apiUrl = 'http://localhost:3000/users'; // JSON server URL
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private authService: AuthService
+  ) {
     this.signInForm = this.fb.group({
       name: ['', [Validators.required]],
       surname: ['', [Validators.required]],
@@ -57,7 +62,8 @@ export class SignInComponent {
         } else {
           this.addUser({ name, surname, username, email, password }).subscribe(response => {
             console.log('Sign In successful', response);
-            this.loginAndClose();
+            this.authService.setUserId(response.id);
+            this.closeOverlay();
           }, error => {
             this.errorMessage = 'Error signing up. Please try again.';
           });
@@ -91,7 +97,7 @@ export class SignInComponent {
     this.close.emit();
   }
 
-  loginAndClose() {
+  openLoginOverlay() {
     this.showLogin.emit();
     this.closeOverlay();
   }

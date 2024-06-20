@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,22 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'login-app';
   showSignIn = false;
   showLogin = false;
 
-  showSignInOverlay() {
-    this.showSignIn = true;
+  constructor(public authService: AuthService) {}
+
+  toggleSignIn() {
+    this.showSignIn = !this.showSignIn;
   }
 
-  closeSignInOverlay() {
+  toggleLogin() {
+    this.showLogin = !this.showLogin;
+  }
+
+  closeSignIn() {
     this.showSignIn = false;
   }
 
-  showLoginOverlay() {
-    this.showLogin = true;
+  closeLogin() {
+    this.showLogin = false;
   }
 
-  closeLoginOverlay() {
-    this.showLogin = false;
+  logout() {
+    this.authService.logout();
   }
 }
