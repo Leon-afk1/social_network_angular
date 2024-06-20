@@ -1,0 +1,23 @@
+<div *ngIf="reviews && reviews.length > 0" class="reviews-section">
+    <h2 class="reviews-title">Avis des utilisateurs</h2>
+    <div class="review-container" *ngFor="let review of reviews">
+      <div class="review">
+        <div class="review-header">
+          <p class="review-author">{{ review.author }}</p>
+          <p class="review-date">({{ review.date }})</p>
+          <div class="rating">
+            <span class="rating-stars" [style.width]="getStarRatingWidth(review.rating)">
+              ★★★★★
+            </span>
+            <span class="rating-value">{{ review.rating }}/5</span>
+          </div>
+        </div>
+        <p class="review-comment">{{ review.comment }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="reviews && reviews.length === 0" class="no-reviews">
+    <p>Aucun avis pour cette recette.</p>
+  </div>
+  

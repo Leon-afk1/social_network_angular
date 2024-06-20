@@ -8,33 +8,35 @@ import { Recipe } from '../classes/recipe';
   providedIn: 'root'
 })
 export class RecipeService {
+  queryRecipe!: Recipe;
   private apiUrl = 'http://localhost:3000/recipes';
+  constructor(private http : HttpClient) { }
 
-  constructor(private http: HttpClient) { }
-
-  getRecipes(): Observable<Recipe[]> {
+  getRecipes(): Observable<Recipe[]>{
     return this.http.get<Recipe[]>(this.apiUrl);
   }
 
-  getRecipeByID(id: number): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
+  getRecipeByID(id: number): Observable<Recipe>{
+    return this.http.get<Recipe>(this.apiUrl + '/' + id);
   }
 
-  addRecipe(recipe: Recipe): Observable<Recipe> {
+  addRecipe(recipe: Recipe): Observable<Recipe>{
     return this.http.post<Recipe>(this.apiUrl, recipe);
   }
 
-  removeRecipe(id: number): Observable<Recipe> {
-    return this.http.delete<Recipe>(`${this.apiUrl}/${id}`);
+  removeRecipe(id: number): Observable<Recipe>{
+    return this.http.delete<Recipe>(this.apiUrl + '/' + id);
   }
 
-  modifyRecipe(recipe: Recipe): Observable<Recipe> {
-    return this.http.put<Recipe>(`${this.apiUrl}/${recipe.id}`, recipe);
+  modifyRecipe(recipe: Recipe): Observable<Recipe>{
+    return this.http.put<Recipe>(this.apiUrl + '/' + recipe.id, recipe);
+
   }
 
   searchRecipes(query: string): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(`${this.apiUrl}?q=${query}`);
   }
+
 
   getTopCategories(limit: number): Observable<string[]> {
     return this.getRecipes().pipe(
@@ -58,4 +60,5 @@ export class RecipeService {
   getUniqueStyles(recipes: Recipe[]): string[] {
     return [...new Set(recipes.map(recipe => recipe.type as string))];
   }
+
 }
