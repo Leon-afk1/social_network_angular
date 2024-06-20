@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Recipe } from '../classes/recipe';
 
@@ -30,9 +30,35 @@ export class RecipeService {
 
   modifyRecipe(recipe: Recipe): Observable<Recipe>{
     return this.http.put<Recipe>(this.apiUrl + '/' + recipe.id, recipe);
+
   }
 
   searchRecipes(query: string): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(`${this.apiUrl}?q=${query}`);
   }
+
+
+  getTopCategories(limit: number): Observable<string[]> {
+    return this.getRecipes().pipe(
+      map((recipes: Recipe[]) => {
+        const categoryCount = recipes.reduce((acc, recipe) => {
+          const category = recipe.category as string;
+          acc[category] = (acc[category] || 0) + 1;
+          return acc;
+        }, {} as { [key: string]: number });
+        return Object.keys(categoryCount)
+          .sort((a, b) => categoryCount[b] - categoryCount[a])
+          .slice(0, limit);
+      })
+    );
+  }
+
+  getUniqueCategories(recipes: Recipe[]): string[] {
+    return [...new Set(recipes.map(recipe => recipe.category as string))];
+  }
+
+  getUniqueStyles(recipes: Recipe[]): string[] {
+    return [...new Set(recipes.map(recipe => recipe.type as string))];
+  }
+
 }

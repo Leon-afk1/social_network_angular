@@ -37,6 +37,9 @@ import { AddReviewComponent } from './add-review/add-review.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule 
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

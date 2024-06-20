@@ -15,6 +15,7 @@ const routes: Routes = [
   // { path: 'profile', component: ProfileComponent },
   { path: 'recipe-form', component: RecipeFormComponent },
   { path: 'recipes', component: RecipeCardListComponent },
+  { path: 'recipes/:category/:style', component: RecipeCardListComponent },
   { path: 'recipe/:id', component: RecipeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }

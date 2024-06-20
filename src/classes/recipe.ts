@@ -8,8 +8,9 @@ export class Recipe {
     public id: number,
     public title: String,
     public description: String,
-    public category: String,
-    public type: String,
+
+    public category: string,
+    public type: string,
     public difficulty: number,
     public nbPeople: number,
     public duration: number,

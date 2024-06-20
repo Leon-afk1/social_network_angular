@@ -1,3 +1,20 @@
+
 <div class="cards-list">
     <app-recipe-card [recipe]="recipe" *ngFor="let recipe of recipes"></app-recipe-card>
+<div class="filter-container">
+  <label for="category">Catégorie:</label>
+  <select id="category" [(ngModel)]="selectedCategory" (change)="applyFilters()">
+    <option value="">Toutes</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+
+  <label for="style">Style:</label>
+  <select id="style" [(ngModel)]="selectedStyle" (change)="applyFilters()">
+    <option value="">Tous</option>
+    <option *ngFor="let style of styles" [value]="style">{{ style }}</option>
+  </select>
+</div>
+
+<div class="cards-list">
+  <app-recipe-card [recipe]="recipe" *ngFor="let recipe of filteredRecipes"></app-recipe-card>
 </div>
