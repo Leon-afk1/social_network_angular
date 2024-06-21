@@ -1,7 +1,7 @@
 <div class="recipe-details">
     <h1>{{ recipe.title }}</h1>
 
-    <img src="assets/recipe1.jpg" alt="recipe image">
+    <img src="{{recipe.image}}" alt="recipe image">
     
     <div class="recipe-informations">
       <div class="info">
@@ -32,7 +32,7 @@
         </li>
       </ol>
     </div>
-    <app-recipe-reviews [recipeId]="recipe.id"></app-recipe-reviews>
-    <app-add-review [recipeId]="recipe.id"></app-add-review>
+    <app-recipe-reviews [recipeId]="id"></app-recipe-reviews>
+    <app-add-review [recipeId]="id"></app-add-review>
 
 </div>

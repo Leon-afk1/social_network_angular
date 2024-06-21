@@ -429,7 +429,7 @@
       "difficulty": 2,
       "nbPeople": 2,
       "duration": "12:43",
-      "image": "assets/recipe.jpg"
+      "image": "assets/default-recipe.png"
     },
     {
       "instructions": [
@@ -453,7 +453,7 @@
       "difficulty": 5,
       "nbPeople": 2,
       "duration": "10:10",
-      "image": "assets/recipe.jpg"
+      "image": "assets/default-recipe.jpg"
     }
   ],
   "reviews": [
@@ -504,6 +504,14 @@
       "rating": 4,
       "comment": "ergr",
       "date": "2024-06-21T13:57:32.492Z"
+    },
+    {
+      "id": 7,
+      "recipeId": "e1b48c37-0c34-4994-9ace-c2fff6988061",
+      "author": "fernand",
+      "rating": 3,
+      "comment": "parfait",
+      "date": "2024-06-21T17:31:41.515Z"
     }
   ]
 }
