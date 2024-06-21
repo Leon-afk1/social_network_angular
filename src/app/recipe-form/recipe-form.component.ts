@@ -35,8 +35,7 @@ export class RecipeFormComponent implements OnInit {
   });
   categories: string[] = [];
   showNewCategoryInput = false;
-  imagePath: string = "http://localhost:4200/assets/recipes";
-  image = new FormData();
+  imageURL: string = "assets/default-recipe.png";
 
   constructor(public recipeService: RecipeService, private http: HttpClient) {}
 
@@ -79,7 +78,7 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onFormSubmit() {
-    if (this.recipeForm.valid) {
+    if (this.recipeForm.valid && this.imageURL != undefined) {
       const instructions: Instruction[] = this.instructions.value.map((text: string, index: number) => new Instruction(index + 1, text));
       const ingredients: Ingredient[] = this.ingredients.value.map((ing: any) => new Ingredient(ing.name, ing.quantity, ing.unit));
       const title = this.recipeForm.value.title || '';
@@ -101,7 +100,7 @@ export class RecipeFormComponent implements OnInit {
         difficulty,
         nbPeople,
         duration,
-        'assets/recipe.jpg' 
+        this.imageURL
       );
 
       this.recipeService.addRecipe(recipe).subscribe(
@@ -112,15 +111,8 @@ export class RecipeFormComponent implements OnInit {
           console.error('Erreur lors de l\'enregistrement de la recette', error);
         }
       );
-      this.uploadImage();
     } else {
       console.error('Form is invalid');
     }
-  }
-
-  uploadImage() {
-    this.http.post('http://localhost:4000', this.image).subscribe(response => {
-      console.log(response);
-    });
   }
 }

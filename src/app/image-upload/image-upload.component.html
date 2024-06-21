@@ -1,2 +1,12 @@
-
-<input type="file" (change)="onFileChange($event)">
+<div class="image-upload">
+    <div *ngIf="imageURL != undefined">
+        <img src="{{imageURL}}" alt="image">
+    </div>
+    <button
+        uploadButton
+        [uploadOptions]="options"
+        [uploadComplete]="onComplete"
+    >
+          Ajouter une image...
+    </button>
+</div>

@@ -19,6 +19,7 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './signin/signin.component';
 import { FooterComponent } from './footer/footer.component';
+import { UploadWidgetModule } from '@bytescale/upload-widget-angular';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UploadWidgetModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

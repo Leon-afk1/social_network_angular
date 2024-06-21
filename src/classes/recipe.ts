@@ -6,9 +6,8 @@ export class Recipe {
     public instructions: Instruction[],
     public ingredients: Ingredient[],
     public id: string,
-    public title: String,
-    public description: String,
-
+    public title: string,
+    public description: string,
     public category: string,
     public type: string,
     public difficulty: number,

@@ -1,0 +1,23 @@
+.image-upload{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+}
+
+.image-upload img{
+    width:100%;
+    border-radius: 2em;
+}
+
+.image-upload button{
+    background-color: #001428;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+
+.image-upload button:hover{
+    background-color: #003569;
+}
