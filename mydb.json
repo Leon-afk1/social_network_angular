@@ -7,22 +7,6 @@
       "username": "test",
       "email": "test@test.test",
       "password": "test"
-    },
-    {
-      "name": "leon",
-      "surname": "mls",
-      "username": "leon_mls",
-      "email": "leon.morales@utbm.fr",
-      "password": "test",
-      "id": "nRJ2xCZ"
-    },
-    {
-      "name": "leon",
-      "surname": "mls",
-      "username": "leon_mls",
-      "email": "kih@utbm.fr",
-      "password": "test",
-      "id": "2T1ySyz"
     }
   ],
   "recipes": [
@@ -480,6 +464,22 @@
       "rating": 4,
       "comment": "wow",
       "date": "2024-06-20T15:30:24.381Z"
+    },
+    {
+      "id": 5,
+      "recipeId": 363,
+      "author": ",hhtd",
+      "rating": 4,
+      "comment": "regrreg",
+      "date": "2024-06-21T11:25:14.850Z"
+    },
+    {
+      "id": 6,
+      "recipeId": 363,
+      "author": "drg",
+      "rating": 4,
+      "comment": "ergr",
+      "date": "2024-06-21T13:57:32.492Z"
     }
   ]
 }
