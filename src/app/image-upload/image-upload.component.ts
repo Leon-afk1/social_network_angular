@@ -8,11 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ImageUploadComponent implements OnInit {
   @Input() imageType: string;
-  imagePath: string = "http://localhost:4200/assets/";
-  image = new FormData();
+  @Input() image: FormData;
+  
 
-  constructor(private http: HttpClient){
-    this.imagePath.concat(this.imageType);
+  constructor(){
+
   }
 
   ngOnInit(): void {
@@ -23,8 +23,5 @@ export class ImageUploadComponent implements OnInit {
       const file = event.target.files[0];
       this.image.append('file',file);
     }
-  }
-  uploadImage(){
-    this.http.post<File>(this.imagePath,this.image);
   }
 }

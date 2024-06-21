@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent implements OnInit {
-  recipe: Recipe;
+  recipe: Recipe = new Recipe([],[],'','','','','',0,0,0,'');
   id: string;
 
   constructor(public recipeService: RecipeService, private activatedRoute: ActivatedRoute) { 
@@ -20,6 +20,5 @@ export class RecipeComponent implements OnInit {
     this.recipeService.getRecipeByID(this.id).subscribe(data=>{
       this.recipe = data;
     });
-    console.log(this.recipe);
   }
 }

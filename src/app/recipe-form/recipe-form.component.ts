@@ -5,6 +5,8 @@ import { RecipeService } from '../recipe.service';
 import { Instruction } from '../../classes/instruction';
 import { Ingredient } from '../../classes/ingredient';
 import { Recipe } from '../../classes/recipe';
+import { ImageUploadComponent } from '../image-upload/image-upload.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-recipe-form',
@@ -30,8 +32,10 @@ export class RecipeFormComponent implements OnInit {
       })
     ])
   })
+  imagePath: string = "http://localhost:4200/assets/recipes";
+  image = new FormData();
 
-  constructor(public recipeService: RecipeService) { }
+  constructor(public recipeService: RecipeService, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -93,13 +97,21 @@ export class RecipeFormComponent implements OnInit {
       this.recipeService.addRecipe(recipe).subscribe(
         response => {
           console.log('Recette enregistrée avec succès', response);
+
         },
         error => {
           console.error('Erreur lors de l\'enregistrement de la recette', error);
         }
       );
+      this.uploadImage();
     }else{
       console.error('Form is invalid');
     }
+  }
+
+  uploadImage(){
+    this.http.post('http://localhost:4000', this.image).subscribe(response => {
+      console.log(response);
+    });
   }
 }
