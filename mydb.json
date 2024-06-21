@@ -1,4 +1,14 @@
 {
+  "users": [
+    {
+      "id": "5e10",
+      "name": "test",
+      "surname": "test",
+      "username": "test",
+      "email": "test@test.test",
+      "password": "test"
+    }
+  ],
   "recipes": [
     {
       "instructions": [
