@@ -78,7 +78,7 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onFormSubmit() {
-    if (this.recipeForm.valid && this.imageURL != undefined) {
+    if (this.recipeForm.valid && this.imageURL) {
       const instructions: Instruction[] = this.instructions.value.map((text: string, index: number) => new Instruction(index + 1, text));
       const ingredients: Ingredient[] = this.ingredients.value.map((ing: any) => new Ingredient(ing.name, ing.quantity, ing.unit));
       const title = this.recipeForm.value.title || '';
@@ -114,5 +114,10 @@ export class RecipeFormComponent implements OnInit {
     } else {
       console.error('Form is invalid');
     }
+  }
+
+  handleImageOutput(imageURL: string) {
+    this.imageURL = imageURL;
+    console.log(this.imageURL);
   }
 }

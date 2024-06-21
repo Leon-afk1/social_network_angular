@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UploadWidgetConfig, UploadWidgetOnUpdateEvent, UploadWidgetResult } from '@bytescale/upload-widget';
 
 @Component({
@@ -8,14 +8,16 @@ import { UploadWidgetConfig, UploadWidgetOnUpdateEvent, UploadWidgetResult } fro
 })
 export class ImageUploadComponent implements OnInit {
   @Input() imageURL: string | undefined;
+  @Output() imageURLOutput = new EventEmitter<string>();
   
   options: UploadWidgetConfig = {
     apiKey: "public_12a1z1QR3LBQJp5gDt4159oFDHWD",
     maxFileCount: 1
   };
-  
+
   onComplete = (files: UploadWidgetResult[]) => {
     this.imageURL = files[0]?.fileUrl;
+    this.imageURLOutput.emit(this.imageURL);
   };
 
   constructor(){}

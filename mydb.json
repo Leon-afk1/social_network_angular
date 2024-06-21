@@ -454,6 +454,54 @@
       "nbPeople": 2,
       "duration": "10:10",
       "image": "assets/default-recipe.jpg"
+    },
+    {
+      "instructions": [
+        {
+          "order": 1,
+          "text": "éplucher les pommes"
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "Pommes",
+          "quantity": "3",
+          "unit": "kg"
+        }
+      ],
+      "id": "f6dc2811-e67d-4ff1-be5a-42ff25e0982e",
+      "title": "tarte ",
+      "description": "",
+      "category": "Coréen",
+      "type": "Plat",
+      "difficulty": 1,
+      "nbPeople": 2,
+      "duration": "22:53",
+      "image": "assets/default-recipe.png"
+    },
+    {
+      "instructions": [
+        {
+          "order": 1,
+          "text": "éplucher les pommes"
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "Pommes",
+          "quantity": "3",
+          "unit": "kg"
+        }
+      ],
+      "id": "8134a67c-6e50-4368-97fd-38be81baf52c",
+      "title": "tarte ",
+      "description": "",
+      "category": "Coréen",
+      "type": "Plat",
+      "difficulty": 1,
+      "nbPeople": 1,
+      "duration": "22:03",
+      "image": "https://upcdn.io/12a1z1Q/raw/uploads/2024/06/21/4kXdEXm49N-Capture.png"
     }
   ],
   "reviews": [
