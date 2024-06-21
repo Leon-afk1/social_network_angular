@@ -7,7 +7,7 @@
     background-color: #111;
     padding-top: 20px;
     transition: width 0.3s, left 0.3s;
-    z-index: 1050;
+    z-index: 5;
   }
   
   .sidebar.visible {
