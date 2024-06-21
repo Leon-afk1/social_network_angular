@@ -5,7 +5,7 @@
     <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
   </select>
 
-  <label for="style">Style:</label>
+  <label for="style">Type:</label>
   <select id="style" [(ngModel)]="selectedStyle" (change)="applyFilters()">
     <option value="">Tous</option>
     <option *ngFor="let style of styles" [value]="style">{{ style }}</option>

@@ -11,15 +11,19 @@
 
     <div class="row justify-content-center">
         <div class="form-group col-md-2">
-          <label for="inputCategory">Category</label>
-          <input type="text" formControlName="category" class="form-control" id="inputCategory" placeholder="Italien">
+            <label for="inputCategory">Catégorie</label>
+            <select formControlName="category" class="form-control" id="inputCategory">
+                <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+                <option value="Autre">Autre</option>
+            </select>
+            <input *ngIf="showNewCategoryInput" type="text" formControlName="newCategory" class="form-control mt-2" placeholder="Nouvelle catégorie">
         </div>
         <div class="form-group col-md-2">
             <label for="inputType">Type</label>
             <select id="inputType" formControlName="type" class="form-control">
                 <option selected>Entrée</option>
                 <option>Plat</option>
-                <option>Déssert</option>
+                <option>Dessert</option>
                 <option>Autre</option>
             </select>
         </div>
@@ -28,8 +32,8 @@
             <input type="time" formControlName="duration" class="form-control" id="inputDuration">
         </div>
         <div class="form-group col-md-2">
-          <label for="inputPersonnes">Personnes</label>
-          <input type="number" formControlName="nbPeople" class="form-control" id="inputPersonnes" value=4>
+            <label for="inputPersonnes">Personnes</label>
+            <input type="number" formControlName="nbPeople" class="form-control" id="inputPersonnes" value="4">
         </div>
         <div class="form-group col-md-2">
             <label for="inputDifficulty">Difficulté</label>
@@ -39,19 +43,19 @@
 
     <div class="row">
         <div formArrayName="instructions" class="col-md-12">
-          <div *ngFor="let instruction of instructions.controls; let i=index" class="form-group row">
-            <label for="inputInstruction{{i}}" class="col-md-2 col-form-label">Instruction {{i + 1}}</label>
-            <div class="col-md-7">
-              <input type="text" [formControlName]="i" class="form-control" id="inputInstruction{{i}}" placeholder="Épluchez les pommes">
+            <div *ngFor="let instruction of instructions.controls; let i=index" class="form-group row">
+                <label for="inputInstruction{{i}}" class="col-md-2 col-form-label">Instruction {{i + 1}}</label>
+                <div class="col-md-7">
+                    <input type="text" [formControlName]="i" class="form-control" id="inputInstruction{{i}}" placeholder="Épluchez les pommes">
+                </div>
+                <div class="col-md-3">
+                    <button type="button" (click)="removeInstruction(i)" class="btn btn-danger" [disabled]="i === 0">Supprimer</button>
+                </div>
             </div>
-            <div class="col-md-3">
-              <button type="button" (click)="removeInstruction(i)" class="btn btn-danger" [disabled]="i === 0">Supprimer</button>
-            </div>
-          </div>
-          <button type="button" (click)="addInstruction()" class="btn btn-secondary">Ajouter une instruction</button>
+            <button type="button" (click)="addInstruction()" class="btn btn-secondary">Ajouter une instruction</button>
         </div>
     </div>
-      
+
     <div formArrayName="ingredients" class="row">
         <div *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i" class="form-group col-md-12">
             <div class="row">
@@ -76,6 +80,5 @@
     <div class="col-md-12">
         <button type="button" (click)="addIngredient()" class="btn btn-secondary">Ajouter un ingrédient</button>
     </div>
-    <app-image-upload [image] = "image"></app-image-upload>
-
+    <app-image-upload [image]="image"></app-image-upload>
 </form>

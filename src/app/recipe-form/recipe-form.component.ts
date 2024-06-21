@@ -15,29 +15,39 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RecipeFormComponent implements OnInit {
   recipeForm = new FormGroup({
-    title: new FormControl('',Validators.required),
-    category: new FormControl('',Validators.required),
-    type: new FormControl('',Validators.required),
-    difficulty: new FormControl(0,Validators.required),
-    nbPeople: new FormControl(0,Validators.required),
-    duration: new FormControl(0,Validators.required),
+    title: new FormControl('', Validators.required),
+    category: new FormControl('', Validators.required),
+    newCategory: new FormControl(''),
+    type: new FormControl('', Validators.required),
+    difficulty: new FormControl(0, Validators.required),
+    nbPeople: new FormControl(0, Validators.required),
+    duration: new FormControl(0, Validators.required),
     instructions: new FormArray([
-      new FormControl('',Validators.required)
+      new FormControl('', Validators.required)
     ]),
     ingredients: new FormArray([
       new FormGroup({
-        name: new FormControl('',Validators.required),
-        quantity: new FormControl('',Validators.required),
-        unit: new FormControl('',Validators.required)
+        name: new FormControl('', Validators.required),
+        quantity: new FormControl('', Validators.required),
+        unit: new FormControl('', Validators.required)
       })
     ])
-  })
+  });
+  categories: string[] = [];
+  showNewCategoryInput = false;
   imagePath: string = "http://localhost:4200/assets/recipes";
   image = new FormData();
 
-  constructor(public recipeService: RecipeService, private http: HttpClient) { }
+  constructor(public recipeService: RecipeService, private http: HttpClient) {}
 
   ngOnInit(): void {
+    this.recipeService.getTopCategories(10).subscribe(categories => {
+      this.categories = categories;
+    });
+
+    this.recipeForm.get('category')?.valueChanges.subscribe(value => {
+      this.showNewCategoryInput = value === 'Autre';
+    });
   }
 
   get ingredients() {
@@ -74,7 +84,7 @@ export class RecipeFormComponent implements OnInit {
       const ingredients: Ingredient[] = this.ingredients.value.map((ing: any) => new Ingredient(ing.name, ing.quantity, ing.unit));
       const title = this.recipeForm.value.title || '';
       const description = '';
-      const category = this.recipeForm.value.category || '';
+      const category = this.showNewCategoryInput ? this.recipeForm.value.newCategory || '' : this.recipeForm.value.category || '';
       const type = this.recipeForm.value.type || '';
       const difficulty: number = this.recipeForm.value.difficulty || 0;
       const nbPeople = this.recipeForm.value.nbPeople || 0;
@@ -83,7 +93,7 @@ export class RecipeFormComponent implements OnInit {
       const recipe = new Recipe(
         instructions,
         ingredients,
-        "", 
+        "",
         title,
         description,
         category,
@@ -91,25 +101,24 @@ export class RecipeFormComponent implements OnInit {
         difficulty,
         nbPeople,
         duration,
-        'assets/recipe.jpg' // Image par défaut
+        'assets/recipe.jpg' 
       );
 
       this.recipeService.addRecipe(recipe).subscribe(
         response => {
           console.log('Recette enregistrée avec succès', response);
-
         },
         error => {
           console.error('Erreur lors de l\'enregistrement de la recette', error);
         }
       );
       this.uploadImage();
-    }else{
+    } else {
       console.error('Form is invalid');
     }
   }
 
-  uploadImage(){
+  uploadImage() {
     this.http.post('http://localhost:4000', this.image).subscribe(response => {
       console.log(response);
     });
