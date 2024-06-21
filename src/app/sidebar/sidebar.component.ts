@@ -4,9 +4,6 @@ import { Recipe } from '../../classes/recipe';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -21,10 +18,10 @@ export class SidebarComponent {
 
   constructor(private recipeService: RecipeService, public authService : AuthService, private router: Router) {}
   
-
   @ViewChild('searchContainer') searchContainer!: ElementRef;
   @ViewChild('sidebar') sidebar!: ElementRef;
-
+  @ViewChild('signIn') signIn!: ElementRef;
+  @ViewChild('login') login!: ElementRef;
 
   onSearch(event: any) {
     const query = event.target.value.toLowerCase();
@@ -51,10 +48,14 @@ export class SidebarComponent {
     if (this.sidebarVisible && this.sidebar && !this.sidebar.nativeElement.contains(target) && !target.classList.contains('menu-icon')) {
       this.sidebarVisible = false;
     }
+    if (this.showSignIn && this.signIn && !this.signIn.nativeElement.contains(target)) {
+      this.showSignIn = false;
+    }
+    if (this.showLogin && this.login && !this.login.nativeElement.contains(target)) {
+      this.showLogin = false;
+    }
   }
 
-
-  
   toggleSignIn() {
     this.showSignIn = !this.showSignIn;
   }
@@ -73,8 +74,6 @@ export class SidebarComponent {
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']);
   }
-
-
 }

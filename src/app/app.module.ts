@@ -18,6 +18,7 @@ import { AddReviewComponent } from './add-review/add-review.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './signin/signin.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SignInComponent } from './signin/signin.component';
     RecipeReviewsComponent,
     ImageUploadComponent,
     LoginComponent,
-    SignInComponent
+    SignInComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

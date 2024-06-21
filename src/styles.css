@@ -28,6 +28,24 @@
 }
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
-background-color: #ffffee;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffee;
+
+}
+
+.app-content {
+  flex: 1;
+}
+
+.footer {
+  flex-shrink: 0;
 }
