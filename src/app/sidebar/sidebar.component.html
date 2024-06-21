@@ -3,7 +3,7 @@
 </div>
 <nav class="sidebar" [class.visible]="sidebarVisible" #sidebar>
     <ul>
-        <li><a routerLink="/home">Accueil</a></li>
+        <li class="site-name"><a routerLink="/home">Marmibon</a></li>
         <li>
             <div class="search-container" #searchContainer>
                 <input type="text" placeholder="Rechercher une recette" (input)="onSearch($event)">
@@ -14,15 +14,12 @@
                 </ul>
             </div>
         </li>
-
-        <li class="button-container">
-            <button class="button-login-signin" *ngIf="!authService.isLoggedIn()" (click)="toggleSignIn()">Sign In / Log In</button>
-            <button class="button-login-signin" *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
-        </li>
+        <li *ngIf="authService.isLoggedIn()"><a (click)="logout()">Se déconnecter</a></li>
+        <li *ngIf="authService.isLoggedIn()"><a routerLink="/profile">Profil</a></li>
+        <li><a routerLink="/recipes">Recettes</a></li>
+        <li *ngIf="authService.isLoggedIn()"><a routerLink="/recipe-form">Créer une recette</a></li>
+        <li *ngIf="!authService.isLoggedIn()"><a (click)="toggleSignIn()">Se connecter</a></li>
         <app-signin *ngIf="showSignIn" (close)="closeSignIn()" (showLogin)="toggleLogin()"></app-signin>
         <app-login *ngIf="showLogin" (close)="closeLogin()"></app-login>
-        <li *ngIf="authService.isLoggedIn()"><a routerLink="/recipe-form">Créer une recette</a></li>
-        <li *ngIf="authService.isLoggedIn()"><a routerLink="/profile">Profil</a></li>
-        <li *ngIf="authService.isLoggedIn()"><a routerLink="/recipes">Recettes</a></li>  
     </ul>
 </nav>
