@@ -1,9 +1,9 @@
 export class Ingredient{
 
     constructor(
-        public name :String,
+        public name :string,
         public quantity : number,
-        public unit : String
+        public unit : string
     ){
         this.name = name;
         this.quantity = quantity;

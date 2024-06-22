@@ -4,6 +4,9 @@ import { Recipe } from '../../classes/recipe';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecipeReviewsComponent } from '../recipe-reviews/recipe-reviews.component'; // Importer RecipeReviewsComponent
+import { IngredientsService } from '../ingredients.service';
+import { IngredientImage } from '../../classes/ingredientImage';
+import { Ingredient } from '../../classes/ingredient';
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
@@ -15,9 +18,11 @@ export class RecipeComponent implements OnInit {
 
   recipe: Recipe = new Recipe('',[], [], '', '', '', '', '', 0, 0, '', '');
   id: string;
+  ingredientsImages: { [name: string]: Promise<string> } = {};
 
   constructor(
     private recipeService: RecipeService,
+    public ingredientService: IngredientsService,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService
   ) {
@@ -31,10 +36,13 @@ export class RecipeComponent implements OnInit {
   loadRecipe(): void {
     this.recipeService.getRecipeByID(this.id).subscribe(data => {
       this.recipe = data;
-      // Vérifier que recipeReviewsComponent est initialisé avant d'appeler loadReviews()
       if (this.recipeReviewsComponent) {
         this.recipeReviewsComponent.loadReviews();
       }
+      data.ingredients.forEach(ingredient => {
+        this.ingredientsImages[ingredient.name] = this.ingredientService.getIngredientImage(ingredient.name);
+      })
+      console.log(this.ingredientsImages);
     });
   }
 
