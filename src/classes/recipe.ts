@@ -12,7 +12,7 @@ export class Recipe {
     public type: string,
     public difficulty: number,
     public nbPeople: number,
-    public duration: number,
+    public duration: string,
     public image: string 
   ) {
     this.id = id;

@@ -15,7 +15,7 @@ export class RecipeComponent implements OnInit {
   // Déclaration de ViewChild pour RecipeReviewsComponent
   @ViewChild(RecipeReviewsComponent) recipeReviewsComponent: RecipeReviewsComponent | undefined;
 
-  recipe: Recipe = new Recipe([], [], '', '', '', '', '', 0, 0, 0, '');
+  recipe: Recipe = new Recipe([], [], '', '', '', '', '', 0, 0, '', '');
   id: string;
 
   constructor(

@@ -31,8 +31,8 @@ export class RecipeService {
   }
 
   modifyRecipe(recipe: Recipe): Observable<Recipe>{
+    console.log("modification de la recette");
     return this.http.put<Recipe>(this.apiUrl + '/' + recipe.id, recipe);
-
   }
 
   searchRecipes(query: string): Observable<Recipe[]> {

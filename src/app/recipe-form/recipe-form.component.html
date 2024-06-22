@@ -1,84 +1,103 @@
-<form [formGroup]="recipeForm" (ngSubmit)="onFormSubmit()">
-    <div class="form-group row justify-content-center">
-        <label for="inputTitle" class="col-sm-1 col-form-label">Titre</label>
-        <div class="col-sm-7">
-            <input type="text" formControlName="title" class="form-control" id="inputTitle" placeholder="Tarte aux pommes">
+<form [formGroup]="recipeForm" class="recipe-form" (ngSubmit)="onFormSubmit()">
+    <div class="recipe-form-header">
+        <label for="inputTitle">Titre</label>
+        <input type="text" formControlName="title" id="inputTitle" placeholder="Tarte aux pommes">
+        <div class="validators" *ngIf="recipeForm.get('title')?.invalid && (recipeForm.get('title')?.dirty || recipeForm.get('title')?.touched)">
+            <small *ngIf="recipeForm.get('title')?.hasError('required')">Le titre est requis.</small>
         </div>
-        <div class="col-sm-2">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
-        </div>
+        <button type="submit">Enregistrer</button>
     </div>
 
-    <div class="row justify-content-center">
-        <div class="form-group col-md-2">
+    <div class="recipe-form-informations">
+        <div class="form-info">
             <label for="inputCategory">Catégorie</label>
-            <select formControlName="category" class="form-control" id="inputCategory">
+            <select formControlName="category" id="inputCategory">
                 <option *ngFor="let category of categories" [value]="category">{{category}}</option>
                 <option value="Autre">Autre</option>
             </select>
+            <div class="validators" *ngIf="recipeForm.get('category')?.invalid && recipeForm.get('category')?.touched">
+                <small *ngIf="recipeForm.get('category')?.hasError('required')">La catégorie est requise.</small>
+              </div>
             <input *ngIf="showNewCategoryInput" type="text" formControlName="newCategory" class="form-control mt-2" placeholder="Nouvelle catégorie">
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-info">
             <label for="inputType">Type</label>
-            <select id="inputType" formControlName="type" class="form-control">
+            <select id="inputType" formControlName="type">
                 <option selected>Entrée</option>
                 <option>Plat</option>
                 <option>Dessert</option>
-                <option>Autre</option>
             </select>
+            <div class="validators" *ngIf="recipeForm.get('type')?.invalid && recipeForm.get('type')?.touched">
+                <small *ngIf="recipeForm.get('type')?.hasError('required')">Le type est requis.</small>
+              </div>
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-info">
             <label for="inputDuration">Durée</label>
-            <input type="time" formControlName="duration" class="form-control" id="inputDuration">
+            <input type="time" formControlName="duration" id="inputDuration">
+            <div class="validators" *ngIf="recipeForm.get('duration')?.invalid && recipeForm.get('duration')?.touched">
+                <small *ngIf="recipeForm.get('duration')?.hasError('required')">La durée est requise.</small>
+              </div>
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-info">
             <label for="inputPersonnes">Personnes</label>
-            <input type="number" formControlName="nbPeople" class="form-control" id="inputPersonnes" value="4">
+            <input type="number" formControlName="nbPeople" id="inputPersonnes" value="4">
+            <div class="validators" *ngIf="recipeForm.get('nbPeople')?.invalid && recipeForm.get('nbPeople')?.touched">
+                <small *ngIf="recipeForm.get('nbPeople')?.hasError('required')">Le nombre de personnes est requis.</small>
+                <small *ngIf="recipeForm.get('nbPeople')?.hasError('min')">Le nombre de personnes doit être positif.</small>
+            </div>
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-info">
             <label for="inputDifficulty">Difficulté</label>
-            <input type="number" formControlName="difficulty" class="form-control" id="inputDifficulty" value="5">
-        </div>
-    </div>
-
-    <div class="row">
-        <div formArrayName="instructions" class="col-md-12">
-            <div *ngFor="let instruction of instructions.controls; let i=index" class="form-group row">
-                <label for="inputInstruction{{i}}" class="col-md-2 col-form-label">Instruction {{i + 1}}</label>
-                <div class="col-md-7">
-                    <input type="text" [formControlName]="i" class="form-control" id="inputInstruction{{i}}" placeholder="Épluchez les pommes">
-                </div>
-                <div class="col-md-3">
-                    <button type="button" (click)="removeInstruction(i)" class="btn btn-danger" [disabled]="i === 0">Supprimer</button>
-                </div>
-            </div>
-            <button type="button" (click)="addInstruction()" class="btn btn-secondary">Ajouter une instruction</button>
-        </div>
-    </div>
-
-    <div formArrayName="ingredients" class="row">
-        <div *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i" class="form-group col-md-12">
-            <div class="row">
-                <div class="form-group col-md-4">
-                    <label for="inputIngredient{{i}}">Ingrédient</label>
-                    <input type="text" formControlName="name" class="form-control" id="inputIngredient{{i}}" placeholder="Pommes">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputQuantity{{i}}">Quantité</label>
-                    <input type="text" formControlName="quantity" class="form-control" id="inputQuantity{{i}}" placeholder="3">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputUnit{{i}}">Unité</label>
-                    <input type="text" formControlName="unit" class="form-control" id="inputUnit{{i}}" placeholder="kg">
-                </div>
-                <div class="form-group col-md-2 align-self-end">
-                    <button type="button" (click)="removeIngredient(i)" class="btn btn-danger" [disabled]="i === 0">Supprimer</button>
-                </div>
+            <input type="number" formControlName="difficulty" id="inputDifficulty" value="5">
+            <div class="validators" *ngIf="recipeForm.get('difficulty')?.invalid && recipeForm.get('difficulty')?.touched">
+                <small *ngIf="recipeForm.get('difficulty')?.hasError('required')">La difficulté est requise.</small>
+                <small *ngIf="recipeForm.get('difficulty')?.hasError('min')">La difficulté doit être au moins 1.</small>
+                <small *ngIf="recipeForm.get('difficulty')?.hasError('max')">La difficulté doit être au plus 10.</small>
             </div>
         </div>
     </div>
-    <div class="col-md-12">
-        <button type="button" (click)="addIngredient()" class="btn btn-secondary">Ajouter un ingrédient</button>
+    <div class="form-recipe-content">
+        <div class="form-recipe-image-description">
+            <app-image-upload [imageURL]="imageURL" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
+            <div>
+                <label for="inputDescription">Description</label>
+                <input type="text" formControlName="description" id="inputDescription" placeholder="Description...">
+            </div>
+        </div>
+        <div class="form-recipe-text">
+            <div formArrayName="instructions" class="form-instructions">
+                <div *ngFor="let instruction of instructions.controls; let i=index" class="form-instruction">
+                    <label for="inputInstruction{{i}}">Instruction {{i + 1}}</label>
+                    <input type="text" [formControlName]="i" id="inputInstruction{{i}}" placeholder="Épluchez les pommes">
+                    <div class="validators" *ngIf="instruction.invalid && instruction.touched">
+                        <small *ngIf="instruction.hasError('required')">L'instruction est requise.</small>
+                    </div>
+                    <button type="button" (click)="removeInstruction(i)" class="btn btn-danger" [hidden]="i === 0">Supprimer</button>
+                </div>
+                <button type="button" (click)="addInstruction()" class="btn btn-secondary">Ajouter une instruction</button>
+            </div>
+        
+            <div formArrayName="ingredients" class="form-ingredients">
+                <div *ngFor="let ingredient of ingredients.controls; let i=index" [formGroupName]="i" class="form-ingredient">
+                    <div class="ingredient-info">
+                        <label for="inputIngredient{{i}}">Ingrédient</label>
+                        <input type="text" formControlName="name" id="inputIngredient{{i}}" placeholder="Pommes">
+                        <div class="validators" *ngIf="ingredient.get('name')?.invalid && ingredient.get('name')?.touched">
+                            <small *ngIf="ingredient.get('name')?.hasError('required')">Le nom de l'ingrédient est requis.</small>
+                        </div>
+                    </div>
+                    <div class="ingredient-info">
+                        <label for="inputQuantity{{i}}">Quantité</label>
+                        <input type="text" formControlName="quantity" id="inputQuantity{{i}}" placeholder="3">
+                    </div>
+                    <div class="ingredient-info">
+                        <label for="inputUnit{{i}}">Unité</label>
+                        <input type="text" formControlName="unit" id="inputUnit{{i}}" placeholder="kg">
+                    </div>
+                    <button type="button" (click)="removeIngredient(i)" class="btn btn-danger" [hidden]="i === 0">Supprimer</button>
+                </div>
+                <button type="button" (click)="addIngredient()" class="btn btn-secondary">Ajouter un ingrédient</button>
+            </div>
+        </div>
     </div>
-    <app-image-upload [imageURL]="imageURL" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
 </form>

@@ -14,6 +14,7 @@ const routes: Routes = [
   // { path: 'register', component: RegisterComponent },
   // { path: 'profile', component: ProfileComponent },
   { path: 'recipe-form', component: RecipeFormComponent },
+  { path: 'recipe-form/:id', component: RecipeFormComponent },
   { path: 'recipes', component: RecipeCardListComponent },
   { path: 'recipes/:category/:style', component: RecipeCardListComponent },
   { path: 'recipe/:id', component: RecipeComponent },
