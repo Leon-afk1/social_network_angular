@@ -15,8 +15,14 @@ export class SidebarComponent {
   sidebarVisible = false;
   showSignIn = false;
   showLogin = false;
+  userId: string | null = null;
 
-  constructor(private recipeService: RecipeService, public authService : AuthService, private router: Router) {}
+
+  constructor(private recipeService: RecipeService, public authService : AuthService, private router: Router) {
+    this.userId = this.authService.getUserId();
+  }
+
+
   
   @ViewChild('searchContainer') searchContainer!: ElementRef;
   @ViewChild('sidebar') sidebar!: ElementRef;
@@ -56,6 +62,17 @@ export class SidebarComponent {
     }
   }
 
+
+  redirectToProfile(): void {
+    const userId = this.authService.getUserId();
+    this.userId = userId
+    if (userId) {
+      this.router.navigate(['/profile', userId]);
+    } else {
+      console.error('User ID not found.');
+    }
+  }
+
   toggleSignIn() {
     this.showSignIn = !this.showSignIn;
   }
@@ -73,7 +90,10 @@ export class SidebarComponent {
   }
 
   logout() {
+    this.userId = null
     this.authService.logout();
     this.router.navigate(['/home']);
   }
+
+
 }

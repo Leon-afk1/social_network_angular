@@ -23,6 +23,8 @@
 .login-form label {
   display: block;
   margin-bottom: 5px;
+  color: black; /* Adjusted label text color */
+  font-weight: bold;
 }
 
 .login-form input {
