@@ -1,9 +1,7 @@
-
 import { Review } from '../classes/review';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +26,3 @@ export class ReviewService {
     return this.http.delete(url);
   }
 }
-

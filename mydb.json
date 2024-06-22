@@ -6,7 +6,8 @@
       "surname": "test",
       "username": "test",
       "email": "test@test.test",
-      "password": "test"
+      "password": "test",
+      "avatar": "../assets/user1.jpg"
     }
   ],
   "recipes": [
@@ -560,6 +561,126 @@
       "rating": 3,
       "comment": "parfait",
       "date": "2024-06-21T17:31:41.515Z"
+    },
+    {
+      "id": "6f04557b-9f96-48a8-a70b-925622d3a204",
+      "recipeId": "363",
+      "userId": "BsUSzCp",
+      "rating": 4,
+      "comment": "test",
+      "date": "2024-06-22T07:38:18.415Z"
+    },
+    {
+      "id": "83c3d8ef-8a1c-486f-b0fc-9bdd95d41776",
+      "recipeId": "14",
+      "userId": "BsUSzCp",
+      "rating": 4,
+      "comment": "test",
+      "date": "2024-06-22T07:48:19.747Z"
+    },
+    {
+      "id": "623f345e-e84f-4373-8fa9-a8914a85e702",
+      "recipeId": "363",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "voil@",
+      "date": "2024-06-22T07:50:35.739Z"
+    },
+    {
+      "id": "95689772-5e3a-4412-a80f-3380d2ea3add",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "voil@",
+      "date": "2024-06-22T08:05:47.240Z"
+    },
+    {
+      "id": "975c48cd-4980-42d0-9455-f7fb4b5fadbf",
+      "recipeId": "363",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "mdr",
+      "date": "2024-06-22T08:21:11.389Z"
+    },
+    {
+      "id": "ec8f99c8-c918-46fc-a421-a24832fbab28",
+      "recipeId": "363",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "t2",
+      "date": "2024-06-22T08:25:27.209Z"
+    },
+    {
+      "id": "6b87394b-3d99-403c-b927-52d3e3b7fd2b",
+      "recipeId": "363",
+      "userId": "5e10",
+      "rating": 4,
+      "comment": "t3",
+      "date": "2024-06-22T08:27:17.266Z"
+    },
+    {
+      "id": "5a33c16a-b812-449c-b7fe-87a84561354a",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "t",
+      "date": "2024-06-22T08:29:22.331Z"
+    },
+    {
+      "id": "b22f5627-6a4c-4dc9-8b1e-1c8cd58133c5",
+      "recipeId": "363",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "t4",
+      "date": "2024-06-22T08:32:25.906Z"
+    },
+    {
+      "id": "04f7a06c-c53d-4f92-85fd-4851461c6029",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 4,
+      "comment": "a",
+      "date": "2024-06-22T08:34:25.224Z"
+    },
+    {
+      "id": "b4c49a12-88b2-4339-9af1-93261ac6f7de",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 4,
+      "comment": "a",
+      "date": "2024-06-22T08:35:08.252Z"
+    },
+    {
+      "id": "52233cf3-1573-42b1-8bc9-43afe0e743f8",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 4,
+      "comment": "a",
+      "date": "2024-06-22T08:35:13.114Z"
+    },
+    {
+      "id": "f3bd8a25-b6f7-495a-9157-de8178a0aa69",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "a",
+      "date": "2024-06-22T08:39:54.253Z"
+    },
+    {
+      "id": "ec4e6634-d9a2-4f3e-87d8-5507940a9c62",
+      "recipeId": "14",
+      "userId": "5e10",
+      "rating": 4,
+      "comment": "a",
+      "date": "2024-06-22T08:41:14.883Z"
+    },
+    {
+      "id": "402c4c44-3a07-4764-84df-dcd8b1ae2fbb",
+      "recipeId": "363",
+      "userId": "5e10",
+      "rating": 3,
+      "comment": "a",
+      "date": "2024-06-22T08:46:04.340Z"
     }
   ]
 }

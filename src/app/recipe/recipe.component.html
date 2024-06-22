@@ -1,38 +1,42 @@
+<!-- recipe.component.html -->
+
 <div class="recipe-details">
-    <h1>{{ recipe.title }}</h1>
+  <h1>{{ recipe.title }}</h1>
+  
+  <img [src]="recipe.image" alt="recipe image">
+  
+  <div class="recipe-informations">
+    <div class="info">
+      <strong>Durée:</strong> {{ recipe.duration }} minutes
+    </div>
+    <div class="info">
+      <strong>Nombre de personnes:</strong> {{ recipe.nbPeople }}
+    </div>
+    <div class="info">
+      <strong>Difficulté:</strong> {{ recipe.difficulty }}
+    </div>
+  </div>
+  
+  <div class="recipe-part">
+    <div class="part-header">Ingrédients:</div>
+    <div class="ingredients">
+      <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
+        <div class="ing-img"></div>
+        {{ ingredient.quantity }} {{ ingredient.unit }} <br/> de {{ ingredient.name }}
+      </div>
+    </div>
+  </div>
+  
+  <div class="recipe-part">
+    <div class="part-header">Instructions:</div>
+    <ol class="instructions">
+      <li class="instruction" *ngFor="let instruction of recipe.instructions">
+        {{ instruction.text }}
+      </li>
+    </ol>
+  </div>
 
-    <img src="{{recipe.image}}" alt="recipe image">
-    
-    <div class="recipe-informations">
-      <div class="info">
-        <strong>Durée:</strong> {{ recipe.duration }} minutes
-      </div>
-      <div class="info">
-        <strong>Nombre de personnes:</strong> {{ recipe.nbPeople }}
-      </div>
-      <div class="info">
-        <strong>Difficulté:</strong> {{ recipe.difficulty }}
-      </div>
-    </div>
-    
-    <div class="recipe-part">
-      <div class="part-header">Ingrédients:</div>
-      <div class="ingredients">
-        <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
-          <div class="ing-img"></div>
-          {{ ingredient.quantity }} {{ ingredient.unit }} <br/> de {{ ingredient.name }}
-        </div>
-      </div>
-    </div>
-    <div class="recipe-part">
-      <div class="part-header">Instructions:</div>
-      <ol class="instructions">
-        <li class="instruction" *ngFor="let instruction of recipe.instructions">
-          {{ instruction.text }}
-        </li>
-      </ol>
-    </div>
-    <app-recipe-reviews [recipeId]="id"></app-recipe-reviews>
-    <app-add-review [recipeId]="id"></app-add-review>
-
+  <app-recipe-reviews [recipeId]="id"></app-recipe-reviews>
+  
+  <app-add-review *ngIf="isUserLoggedIn()" [recipeId]="id" (reviewAdded)="onReviewAdded()"></app-add-review>
 </div>

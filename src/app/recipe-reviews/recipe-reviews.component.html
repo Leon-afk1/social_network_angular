@@ -1,23 +1,26 @@
 <div *ngIf="reviews && reviews.length > 0" class="reviews-section">
-    <h2 class="reviews-title">Avis des utilisateurs</h2>
-    <div class="review-container" *ngFor="let review of reviews">
-      <div class="review">
-        <div class="review-header">
-          <p class="review-author">{{ review.author }}</p>
-          <p class="review-date">({{ review.date }})</p>
-          <div class="rating">
-            <span class="rating-stars" [style.width]="getStarRatingWidth(review.rating)">
-              ★★★★★
-            </span>
-            <span class="rating-value">{{ review.rating }}/5</span>
-          </div>
+  <h2 class="reviews-title">Avis des utilisateurs</h2>
+  <div class="review-container" *ngFor="let review of reviews">
+    <div class="review">
+      <div class="review-header">
+        <a [routerLink]="['/user', review.userId]" class="review-author">
+          <img *ngIf="review.user?.avatar" [src]="review.user?.avatar" alt="{{ review.user?.username }}" class="avatar">
+          <span *ngIf="!review.user?.avatar" class="avatar-placeholder"></span> 
+          <span>{{ review.user?.username }}</span>
+        </a>
+        <p class="review-date">({{ formatDate(review.date) }})</p>
+        <div class="rating">
+          <span class="rating-stars" [style.width]="getStarRatingWidth(review.rating)">
+            ★★★★★
+          </span>
+          <span class="rating-value">{{ review.rating }}/5</span>
         </div>
-        <p class="review-comment">{{ review.comment }}</p>
       </div>
+      <p class="review-comment">{{ review.comment }}</p>
     </div>
   </div>
-  
-  <div *ngIf="reviews && reviews.length === 0" class="no-reviews">
-    <p>Aucun avis pour cette recette.</p>
-  </div>
-  
+</div>
+
+<div *ngIf="reviews && reviews.length === 0" class="no-reviews">
+  <p>Aucun avis pour cette recette.</p>
+</div>

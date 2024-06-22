@@ -1,69 +1,73 @@
 .reviews-section {
-    margin-top: 20px;
-    border-top: 2px solid #ccc;
-    padding-top: 20px;
-  }
-  
-  .reviews-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .review-container {
-    margin-top: 20px;
-  }
-  
-  .review {
-    border: 1px solid #eee;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-  }
-  
-  .review-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .review-author {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .review-date {
-    color: #666;
-  }
-  
-  .rating {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-  }
-  
-  .rating-stars {
-    font-size: 20px;
-    color: gold;
-    display: inline-block;
-    width: auto; /* Dynamically set based on rating */
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-  .rating-value {
-    margin-left: 10px;
-    font-weight: bold;
-  }
-  
-  .review-comment {
-    color: #444;
-    line-height: 1.6;
-  }
-  
-  .no-reviews {
-    margin-top: 20px;
-    color: #777;
-  }
-  
+  margin-top: 20px;
+}
+
+.review-container {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.review-author:hover {
+  text-decoration: underline;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #007bff;
+}
+
+.review-date {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-stars {
+  color: #ffc107;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1;
+  width: 80px;
+}
+
+.rating-value {
+  margin-left: 5px;
+  font-size: 1em;
+  color: #333;
+}
+
+.review-comment {
+  margin-top: 10px;
+  font-size: 1em;
+  color: #333;
+}
+
+.no-reviews {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #777;
+}
