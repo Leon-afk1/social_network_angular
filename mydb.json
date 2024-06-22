@@ -7,7 +7,8 @@
       "username": "alban_mrn",
       "email": "alban.morin@utbm.fr",
       "description": "J'aime la cuisine",
-      "avatar": "../assets/user1.jpg"
+      "avatar": "../assets/user1.jpg",
+      "password": "test"
     },
     {
       "id": "fa18fecd-bf8e-4c22-a5aa-0f2d6144e25f",
@@ -16,7 +17,8 @@
       "username": "fernand_leroy",
       "email": "fernand.leroy@example.com",
       "description": "Passionné de cuisine française et de recettes traditionnelles",
-      "avatar": "../assets/user1.jpg"
+      "avatar": "../assets/user1.jpg",
+      "password": "test"
     },
     {
       "id": "9e9609b5-7f4b-4c63-8a7a-78cfb2ba070e",
@@ -25,7 +27,8 @@
       "username": "felix_faravel",
       "email": "felix.faravel@example.com",
       "description": "Explorateur de saveurs du monde et cuisinier expérimenté",
-      "avatar": "../assets/user3.jpg"
+      "avatar": "../assets/user2.jpg",
+      "password": "test"
     },
     {
       "id": "8d4858d5-4eb2-4928-8b54-1a21d81344b2",
@@ -34,8 +37,9 @@
       "username": "noe_sengel",
       "email": "noe.sengel@example.com",
       "description": "Amateur de pâtisserie et de desserts créatifs",
-      "avatar": "../assets/user2.jpg"
-    },           
+      "avatar": "../assets/user2.jpg",
+      "password": "test"
+    },
     {
       "id": "133e95ef-d28d-4c72-a7b0-a8e3a15af55d",
       "firstName": "Leon",
@@ -43,7 +47,8 @@
       "username": "leon_mls",
       "email": "leon.morales@utbm.fr",
       "description": "La cuisine c'est ma passion",
-      "avatar": "../assets/user2.jpg"
+      "avatar": "../assets/user2.jpg",
+      "password": "test"
     },
     {
       "id": "cac9685c-9eab-4d5e-a26a-3d1903741367",
@@ -52,7 +57,8 @@
       "username": "morgane_lvd",
       "email": "morgane.lavarde@gmail.com",
       "description": "Ma spécialité c'est les pâtes",
-      "avatar": "../assets/user3.jpg"
+      "avatar": "../assets/user3.jpg",
+      "password": "test"
     },
     {
       "id": "a1b2c3d4-5678-4ef9-8a7b-6d5f4e3c2b1a",
@@ -61,7 +67,8 @@
       "username": "lucas_dpt",
       "email": "lucas.dupont@example.com",
       "description": "Chef amateur, passionné de cuisine française",
-      "avatar": "../assets/user1.jpg"
+      "avatar": "../assets/user1.jpg",
+      "password": "test"
     },
     {
       "id": "e1f2g3h4-5678-4ijk-8a7b-6d5f4e3c2b1b",
@@ -70,7 +77,8 @@
       "username": "julie_mrt",
       "email": "julie.martin@example.com",
       "description": "Gastronome curieuse et créative",
-      "avatar": "../assets/user2.jpg"
+      "avatar": "../assets/user2.jpg",
+      "password": "test"
     },
     {
       "id": "i1j2k3l4-5678-4mno-8a7b-6d5f4e3c2b1c",
@@ -79,7 +87,8 @@
       "username": "nicolas_brn",
       "email": "nicolas.bernard@example.com",
       "description": "Explorateur culinaire",
-      "avatar": "../assets/user3.jpg"
+      "avatar": "../assets/user3.jpg",
+      "password": "test"
     }
   ],
   "recipes": [
@@ -746,7 +755,7 @@
       "nbPeople": 8,
       "duration": "00:20",
       "image": "https://upcdn.io/12a1z1Q/raw/uploads/2024/06/22/4kXV2YyJJE-93153_w600.jpg"
-    }        ,
+    },
     {
       "userId": "f6e2b4dc-3567-4df1-bc02-63d5e89e5a8d",
       "instructions": [
@@ -1504,7 +1513,7 @@
       "nbPeople": 4,
       "duration": "00:30",
       "image": "https://th.bing.com/th/id/OIP.40TtBVP6woVbPpCMMownaQHaE7?rs=1&pid=ImgDetMain"
-    }        
+    }
   ],
   "reviews": [
     {
@@ -1546,7 +1555,7 @@
       "rating": 4,
       "comment": "J'ai essayé cette recette de chilaquiles pour une soirée entre amis et tout le monde a adoré ! Simple à faire et délicieusement savoureux. Merci pour cette découverte !",
       "date": "2024-06-23T16:00:00Z"
-    },                
+    },
     {
       "id": "1e2c81e0-9a2a-4f63-a443-8e5d7d5ef9e2",
       "recipeId": "1d8908ec-68e5-4f6a-9332-1f5df76f2522",
@@ -1779,6 +1788,5 @@
       "comment": "Très bons cookies, mais j'ai trouvé qu'ils manquaient un peu de sucre.",
       "date": "2024-06-26T16:45:00.000Z"
     }
-  
   ]
 }
