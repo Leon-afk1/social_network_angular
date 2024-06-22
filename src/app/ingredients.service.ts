@@ -26,16 +26,12 @@ export class IngredientsService {
     }else{
       ingredient = ingredientFetched[0];
     }
-
-    console.log("ingredient fertched: ",ingredient);
     if(ingredient){
-      console.log("exists");
       return ingredient.imageURL;
     }else{
       let imageURL:string="assets/default-ingredient.png";
       await this.fetchImageFromUnsplash(ingredientName).subscribe(
         data => {
-          console.log(data);
           let url = data.results[0].links.download;
           this.saveImage(url, ingredientName);
           imageURL = url;

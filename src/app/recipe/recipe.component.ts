@@ -42,7 +42,6 @@ export class RecipeComponent implements OnInit {
       data.ingredients.forEach(ingredient => {
         this.ingredientsImages[ingredient.name] = this.ingredientService.getIngredientImage(ingredient.name);
       })
-      console.log(this.ingredientsImages);
     });
   }
 
