@@ -71,7 +71,6 @@ export class ProfileComponent implements OnInit {
   handleImageOutput(imageURL: string) {
     if (this.user) {
       this.user.avatar = imageURL;
-      this.saveChanges(); // Save changes including the updated avatar
     } else {
       console.error('User object is null.'); // Handle the case where user is null
     }

@@ -2,8 +2,9 @@
     <div class="profile">
       <div class="avatar">
         <img *ngIf="!isEditing" [src]="user.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
-        <app-image-upload [imageURL]="user.avatar" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
       </div>
+      <app-image-upload *ngIf="isEditing" [imageURL]="user.avatar" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
+
       <div class="details">
         <div class="left-column">
           <div class="field">
