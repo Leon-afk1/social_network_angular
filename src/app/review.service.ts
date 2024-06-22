@@ -25,4 +25,9 @@ export class ReviewService {
     const url = `${this.reviewsUrl}/${id}`;
     return this.http.delete(url);
   }
+
+  reviewCarousel(nombre : number): Observable<Review[]> {
+    const url = `${this.reviewsUrl}?_limit=${nombre}`;
+    return this.http.get<Review[]>(url);
+  }
 }

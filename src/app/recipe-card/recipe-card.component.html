@@ -1,11 +1,11 @@
 <div class="recipe-card" [routerLink]="['/recipe', recipe.id]">
   <div class="recipe-card-header">
-    <img class="recipe-image" src="{{recipe.image}}" alt="Recipe preview image">
+    <img class="recipe-image" src="{{ recipe.image }}" alt="Recipe preview image">
     <app-stars-review [recipeId]="recipe.id" [simple]="true"></app-stars-review>
     <h3>{{ recipe.title }}</h3>
   </div>
   <div class="recipe-card-body">
-    <!-- <div class="recipe-info">
+       <!-- <div class="recipe-info">
       <img src="assets/icons/duration.svg" alt="duration">
       <div class="info-body">
         {{ recipe.duration }}

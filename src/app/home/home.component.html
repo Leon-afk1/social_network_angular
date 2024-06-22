@@ -14,14 +14,13 @@
       <h2>Quelques Commentaires</h2>
       <div *ngIf="comments.length === 0">Aucun commentaire disponible</div>
       <div class="comment" *ngFor="let comment of comments">
-        <p>{{ comment.comment }}</p> 
+        <p class="comment-text">{{ truncateText(comment.comment, 100) }}</p> 
         <div class="user-info">
           <a [routerLink]="['/profile', comment.userId]">
             <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
           </a>
           <div class="user-details">
-            <a [routerLink]="['/user', comment.userId]"><strong>{{ comment.user?.username }}</strong></a>
-            <p>{{ comment.user?.description }}</p>
+            <a [routerLink]="['/user', comment.userId]">{{ comment.user?.username }}</a>
           </div>
         </div>
       </div>
