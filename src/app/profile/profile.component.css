@@ -71,6 +71,10 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .app-image-upload {
+    margin-top: 2em;
+}
   
   button:hover {
     background-color: #0056b3;

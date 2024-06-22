@@ -16,7 +16,7 @@
       <div class="comment" *ngFor="let comment of comments">
         <p>{{ comment.comment }}</p> 
         <div class="user-info">
-          <a [routerLink]="['/user', comment.userId]">
+          <a [routerLink]="['/profile', comment.userId]">
             <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
           </a>
           <div class="user-details">

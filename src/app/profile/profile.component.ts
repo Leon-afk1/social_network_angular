@@ -53,20 +53,28 @@ export class ProfileComponent implements OnInit {
 
   saveChanges(): void {
     if (this.user) {
-      this.http.put<User>(`http://localhost:3000/users/${this.user.id}`, this.user).subscribe(
-        user => {
-          console.log('Profile updated', user);
-          this.user = user;
+      this.authService.updateUser(this.user).subscribe(
+        updatedUser => {
+          console.log('Profile updated:', updatedUser);
+          this.user = updatedUser;
+          this.isEditing = false; // Exit edit mode after saving changes
         },
         error => {
           console.error('Error updating profile:', error);
+          // Handle the error case, e.g., show an error message
         }
       );
     }
   }
+
+
   handleImageOutput(imageURL: string) {
-    this.imageURL = imageURL;
-    console.log(this.imageURL);
+    if (this.user) {
+      this.user.avatar = imageURL;
+      this.saveChanges(); // Save changes including the updated avatar
+    } else {
+      console.error('User object is null.'); // Handle the case where user is null
+    }
   }
 
 }

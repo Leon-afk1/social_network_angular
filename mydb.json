@@ -25,12 +25,13 @@
       "email": "morgane.lavarde@gmail.com",
       "password": "test",
       "id": "td2sgb_",
-      "avatar": "../assets/user3.jpg"
+      "avatar": "../assets/user3.jpg",
+      "description": "yes"
     },
     {
       "id": "79ba14c0-77b1-4873-bbfa-c1c1409dbc00",
       "firstName": "testaazeaze",
-      "lastName": "aze^pazêk",
+      "lastName": "on est la ",
       "username": "testa",
       "email": "testa@test.test",
       "description": "azeazeaze",

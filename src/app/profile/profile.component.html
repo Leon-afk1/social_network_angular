@@ -1,7 +1,8 @@
 <div class="profile-container">
     <div class="profile">
       <div class="avatar">
-        <img [src]="user.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
+        <img *ngIf="!isEditing" [src]="user.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
+        <app-image-upload [imageURL]="user.avatar" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
       </div>
       <div class="details">
         <div class="left-column">
