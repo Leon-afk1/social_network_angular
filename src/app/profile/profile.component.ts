@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../../classes/user'; // Import User class
+import { User } from '../../classes/user'; 
 import { AuthService } from '../auth.service';
+import { RecipeService } from '../recipe.service';
+import { Recipe} from '../../classes/recipe'
 import { ImageUploadComponent } from '../image-upload/image-upload.component';
 
 
@@ -24,8 +26,9 @@ export class ProfileComponent implements OnInit {
   };
   isEditing: boolean = false;
   isOwner: boolean = false;
+  recipes: Recipe[] = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private authService: AuthService) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private authService: AuthService,private recipeService: RecipeService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -34,6 +37,8 @@ export class ProfileComponent implements OnInit {
         user => {
           this.user = user;
           this.isOwner = this.authService.getUserId() === user.id; // Check if the logged-in user is the profile owner
+          this.loadUserRecipes(user.id); // Fetch user's recipes
+
         },
         error => {
           console.error('Error fetching user:', error);
@@ -74,6 +79,17 @@ export class ProfileComponent implements OnInit {
     } else {
       console.error('User object is null.'); // Handle the case where user is null
     }
+  }
+
+  loadUserRecipes(userId: String): void {
+    this.recipeService.getRecipesByUser(userId).subscribe(
+      recipes => {
+        this.recipes = recipes;
+      },
+      error => {
+        console.error('Error fetching recipes:', error);
+      }
+    );
   }
 
 }

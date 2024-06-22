@@ -63,4 +63,8 @@ export class RecipeService {
     return [...new Set(recipes.map(recipe => recipe.type as string))];
   }
 
+  getRecipesByUser(userId: String): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiUrl}?userId=${userId}`);
+  }
+
 }
