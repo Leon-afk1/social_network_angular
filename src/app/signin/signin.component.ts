@@ -44,7 +44,7 @@ export class SignInComponent {
 
       this.checkEmailExists(email).subscribe(exists => {
         if (exists) {
-          this.errorMessage = 'Email already exists';
+          this.errorMessage = 'Email deja utilisé pour un autre compte';
         } else {
           const newUser = new User(uuidv4(), firstName, lastName, username, email, '', ''); // Create a new User instance
           this.addUser(newUser).subscribe(response => {
@@ -52,12 +52,12 @@ export class SignInComponent {
             this.authService.setUserId(response.id); // Assuming response has an 'id' field
             this.closeOverlay();
           }, error => {
-            this.errorMessage = 'Error signing up. Please try again.';
+            this.errorMessage = 'Une erreur est survenue, essayez plus tard.';
           });
         }
       });
     } else {
-      this.errorMessage = 'Please fill in all required fields.';
+      this.errorMessage = 'Veuillez remplir tout les champs';
     }
   }
 

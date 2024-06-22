@@ -1,5 +1,4 @@
-/* login.component.css */
-  
+/* Overlay styles */
 .overlay {
   position: fixed;
   top: 0;
@@ -12,12 +11,19 @@
   align-items: center;
 }
 
+/* Login form specific styles */
 .login-form {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
+  width: 90%;
+  max-width: 400px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure relative positioning for error messages */
+  display: flex;
+  flex-direction: column; /* Arrange form elements in a column */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 }
 
 .login-form label {
@@ -25,10 +31,11 @@
   margin-bottom: 5px;
   color: black; /* Adjusted label text color */
   font-weight: bold;
+  width: 100%; /* Ensure labels take full width */
 }
 
 .login-form input {
-  width: calc(100% - 20px);
+  width: calc(100% - 16px);
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -36,6 +43,7 @@
 }
 
 .login-form button {
+  width: 100%;
   padding: 10px 15px;
   background-color: #007bff;
   color: white;
@@ -53,4 +61,6 @@
   color: red;
   font-size: 14px;
   margin-top: 5px;
+  width: 100%;
+  text-align: center; /* Center error message */
 }
