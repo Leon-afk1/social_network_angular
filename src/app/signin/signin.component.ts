@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
 import { User } from '../../classes/user'; // Import User class
+import { v4 as uuidv4 } from 'uuid'; // Import UUID generator
 
 @Component({
   selector: 'app-signin',
@@ -46,7 +47,7 @@ export class SignInComponent {
         if (exists) {
           this.errorMessage = 'Email already exists';
         } else {
-          const newUser = new User(firstName, lastName, username, email, '', ''); // Create a new User instance
+          const newUser = new User(uuidv4(), firstName, lastName, username, email, '', ''); // Create a new User instance
           this.addUser(newUser).subscribe(response => {
             console.log('Sign In successful', response);
             this.authService.setUserId(response.id); // Assuming response has an 'id' field
@@ -62,22 +63,11 @@ export class SignInComponent {
   }
 
   checkEmailExists(email: string): Observable<boolean> {
-    return this.http.get<any[]>(`${this.apiUrl}?email=${email}`).pipe(
-      map((users: any[]) => users.length > 0),
-      catchError(error => {
-        console.error('Error checking email:', error);
-        return of(false);
-      })
-    );
+    return this.authService.checkEmailExists(email)
   }
 
   addUser(user: User): Observable<any> {
-    return this.http.post(this.apiUrl, user).pipe(
-      catchError(error => {
-        console.error('Error adding user:', error);
-        return of(null);
-      })
-    );
+    return this.authService.addUser(user)
   }
 
   closeOverlay() {

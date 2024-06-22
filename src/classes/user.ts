@@ -2,6 +2,7 @@ import { Recipe } from "./recipe";
 
 export class User{
     constructor(
+        public id : String,
         public firstName :String,
         public lastName :String,
         public username :String,
@@ -9,6 +10,7 @@ export class User{
         public description: string,
         public avatar: string
     ){
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;

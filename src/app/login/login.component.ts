@@ -55,13 +55,7 @@ export class LoginComponent {
   }
 
   checkUserCredentials(email: string, password: string): Observable<any> {
-    return this.http.get<any[]>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
-      map(users => users.length > 0 ? users[0] : null),
-      catchError(error => {
-        console.error('Error checking credentials:', error);
-        return of(null);
-      })
-    );
+    return this.authService.checkUserCredentials(email,password)
   }
 
   closeOverlay() {
