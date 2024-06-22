@@ -4,10 +4,10 @@
   <h1>{{ recipe.title }}</h1>
   
   <img [src]="recipe.image" alt="recipe image">
-  
+  <p>{{recipe.description}}</p>
   <div class="recipe-informations">
     <div class="info">
-      <strong>Durée:</strong> {{ recipe.duration }} minutes
+      <strong>Durée:</strong> {{ recipe.duration }}
     </div>
     <div class="info">
       <strong>Nombre de personnes:</strong> {{ recipe.nbPeople }}

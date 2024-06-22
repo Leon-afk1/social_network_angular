@@ -92,6 +92,7 @@ export class RecipeFormComponent implements OnInit {
   }
 
   onFormSubmit() {
+    this.markAllAsTouched(this.recipeForm);
     if (this.recipeForm.valid && this.imageURL) {
       const instructions: Instruction[] = this.instructions.value.map((text: string, index: number) => new Instruction(index + 1, text));
       const ingredients: Ingredient[] = this.ingredients.value.map((ing: any) => new Ingredient(ing.name, ing.quantity, ing.unit));
@@ -137,7 +138,6 @@ export class RecipeFormComponent implements OnInit {
           }
         );
       }
-      
     } else {
       console.error('Form is invalid');
     }
@@ -147,9 +147,6 @@ export class RecipeFormComponent implements OnInit {
     this.imageURL = imageURL;
   }
 
-  uploadRecipe(){
-    
-  }
 
   setInputsToRecipe(recipe: Recipe){
     this.recipeForm = new FormGroup({
@@ -183,6 +180,17 @@ export class RecipeFormComponent implements OnInit {
         quantity: new FormControl(ingredient.quantity),
         unit: new FormControl(ingredient.unit)
       }));
+    });
+  }
+
+  markAllAsTouched(formGroup: FormGroup | FormArray) {
+    Object.keys(formGroup.controls).forEach(key => {
+      const control = formGroup.get(key);
+      if (control instanceof FormControl) {
+        control.markAsTouched();
+      } else if (control instanceof FormGroup || control instanceof FormArray) {
+        this.markAllAsTouched(control);
+      }
     });
   }
 }

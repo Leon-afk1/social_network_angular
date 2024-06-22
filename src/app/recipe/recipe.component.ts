@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../../classes/recipe';

@@ -16,6 +16,7 @@
 
 .recipe-card:hover .recipe-card-header{
   transform: rotate(-17deg);
+  cursor: pointer;
 }
 
 .recipe-card-header .rating{
@@ -58,4 +59,8 @@
 
 .recipe-card .recipe-info img{
   width: 2em;
+}
+
+.recipe-card h3{
+  font-size: 1em;
 }
