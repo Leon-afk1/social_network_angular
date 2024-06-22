@@ -1,22 +1,31 @@
 {
   "users": [
     {
-      "id": "f737",
-      "firstName": "test",
-      "lastName": "test",
+      "id": "5e10",
+      "name": "test",
+      "surname": "test",
       "username": "test",
       "email": "test@test.test",
-      "description": "",
-      "avatar": ""
+      "password": "test",
+      "avatar": "../assets/user1.jpg"
     },
     {
-      "id": "a1fc",
-      "firstName": "test2",
-      "lastName": "test2",
-      "username": "test2",
-      "email": "test2@test.test",
-      "description": "",
-      "avatar": ""
+      "name": "Léon",
+      "surname": "Morales",
+      "username": "leon_mls",
+      "email": "leon.morales@utbm.fr",
+      "password": "test",
+      "id": "IiQdrda",
+      "avatar": "../assets/user2.jpg"
+    },
+    {
+      "name": "Morgane",
+      "surname": "LAVARDE",
+      "username": "morgane_mls",
+      "email": "morgane.lavarde@gmail.com",
+      "password": "test",
+      "id": "td2sgb_",
+      "avatar": "../assets/user3.jpg"
     }
   ],
   "recipes": [
@@ -24,672 +33,245 @@
       "instructions": [
         {
           "order": 1,
-          "text": ""
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "",
-          "unit": ""
-        }
-      ],
-      "id": "363",
-      "title": "bonjour",
-      "category": "Français",
-      "type": "Plat",
-      "difficulty": 4,
-      "nbPeople": 4,
-      "duration": 23
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "éplucher les pommes"
+          "text": "Laver et épépiner les poivrons et les couper en dés."
         },
         {
           "order": 2,
-          "text": "faire cuire"
+          "text": "Les faire revenir dans une casserole à l'huile d'olive. Faire cuire les pâtes. saler, poivrer et mettre des herbes de provence sur les poivrons, baisser le feu et laisser cuire 10 mn. Les poivrons vont confire."
+        },
+        {
+          "order": 3,
+          "text": "Egoutter les pâtes. Ajouter le chèvre en petits morceaux sur les poivrons et la crème fraîche."
+        },
+        {
+          "order": 4,
+          "text": "Laisser cuire 2 minutes en remuant et servir sur les pâtes."
         }
       ],
       "ingredients": [
         {
-          "name": "Pommes",
+          "name": "Huile d'olive",
+          "quantity": "1",
+          "unit": "peu"
+        },
+        {
+          "name": "Sel",
+          "quantity": "1",
+          "unit": "pincée"
+        },
+        {
+          "name": "Poivre",
+          "quantity": "1",
+          "unit": "pincée"
+        },
+        {
+          "name": "Crème fraiche",
+          "quantity": "250",
+          "unit": "g"
+        },
+        {
+          "name": "Poivrons",
           "quantity": "3",
-          "unit": ""
+          "unit": "unité"
         },
         {
-          "name": "tarte",
+          "name": "Pates",
+          "quantity": "600",
+          "unit": "g"
+        },
+        {
+          "name": "Fromage de chèvre type St Maure",
+          "quantity": "0.5",
+          "unit": "unité"
+        },
+        {
+          "name": "Herbes de Provence",
           "quantity": "1",
-          "unit": ""
+          "unit": "pincée"
         }
       ],
-      "id": "14",
-      "title": "tarte ",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 7,
-      "nbPeople": 2,
-      "duration": "01:00"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "éplucher les pommes"
-        },
-        {
-          "order": 2,
-          "text": "faire cuire"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "Pommes",
-          "quantity": "3",
-          "unit": ""
-        },
-        {
-          "name": "tarte",
-          "quantity": "1",
-          "unit": ""
-        }
-      ],
-      "id": "487",
-      "title": "tarte ",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 7,
-      "nbPeople": 2,
-      "duration": "01:00"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "éplucher les pommes"
-        },
-        {
-          "order": 2,
-          "text": "faire cuire"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "Pommes",
-          "quantity": "3",
-          "unit": ""
-        },
-        {
-          "name": "tarte",
-          "quantity": "1",
-          "unit": ""
-        }
-      ],
-      "id": "974",
-      "title": "tarte ",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 7,
-      "nbPeople": 2,
-      "duration": "01:00"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": ""
-        },
-        {
-          "order": 2,
-          "text": ""
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "",
-          "unit": ""
-        },
-        {
-          "name": "sdadsa",
-          "quantity": "asd",
-          "unit": ""
-        },
-        {
-          "name": "dasdsadsa",
-          "quantity": "",
-          "unit": ""
-        }
-      ],
-      "id": "141",
-      "title": "dfasdf",
-      "category": "Français",
-      "type": "Plat",
-      "difficulty": "",
-      "nbPeople": "",
-      "duration": ""
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": ""
-        },
-        {
-          "order": 2,
-          "text": ""
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "",
-          "unit": ""
-        },
-        {
-          "name": "sdadsa",
-          "quantity": "asd",
-          "unit": ""
-        },
-        {
-          "name": "dasdsadsa",
-          "quantity": "",
-          "unit": ""
-        }
-      ],
-      "id": "669",
-      "title": "dfasdf",
-      "category": "Français",
-      "type": "Plat",
-      "difficulty": "",
-      "nbPeople": "",
-      "duration": ""
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "'ef"
-        },
-        {
-          "order": 2,
-          "text": "fefre"
-        },
-        {
-          "order": 3,
-          "text": "'teer"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "2",
-          "unit": " pommes"
-        },
-        {
-          "name": "canadou",
-          "quantity": "2",
-          "unit": "cl"
-        }
-      ],
-      "id": "376",
-      "title": "test2",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 3,
-      "nbPeople": 5,
-      "duration": "19:51"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "'ef"
-        },
-        {
-          "order": 2,
-          "text": "fefre"
-        },
-        {
-          "order": 3,
-          "text": "'teer"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "2",
-          "unit": " pommes"
-        },
-        {
-          "name": "canadou",
-          "quantity": "2",
-          "unit": "cl"
-        }
-      ],
-      "id": "473",
-      "title": "test2",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 3,
-      "nbPeople": 5,
-      "duration": "19:51"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "'ef"
-        },
-        {
-          "order": 2,
-          "text": "fefre"
-        },
-        {
-          "order": 3,
-          "text": "'teer"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "2",
-          "unit": " pommes"
-        },
-        {
-          "name": "canadou",
-          "quantity": "2",
-          "unit": "cl"
-        }
-      ],
-      "id": "7",
-      "title": "test2",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 3,
-      "nbPeople": 5,
-      "duration": "19:51"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "'ef"
-        },
-        {
-          "order": 2,
-          "text": "fefre"
-        },
-        {
-          "order": 3,
-          "text": "'teer"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "2",
-          "unit": " pommes"
-        },
-        {
-          "name": "canadou",
-          "quantity": "2",
-          "unit": "cl"
-        }
-      ],
-      "id": "831",
-      "title": "test2",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 3,
-      "nbPeople": 5,
-      "duration": "19:51"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "'ef"
-        },
-        {
-          "order": 2,
-          "text": "fefre"
-        },
-        {
-          "order": 3,
-          "text": "'teer"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "2",
-          "unit": " pommes"
-        },
-        {
-          "name": "canadou",
-          "quantity": "2",
-          "unit": "cl"
-        }
-      ],
-      "id": "373",
-      "title": "test2",
-      "category": "Français",
-      "type": "Dessert",
-      "difficulty": 3,
-      "nbPeople": 5,
-      "duration": "19:51"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "'ef"
-        },
-        {
-          "order": 2,
-          "text": "fefre"
-        },
-        {
-          "order": 3,
-          "text": "'teer"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "",
-          "quantity": "2",
-          "unit": " pommes"
-        },
-        {
-          "name": "canadou",
-          "quantity": "2",
-          "unit": "cl"
-        }
-      ],
-      "id": "578",
-      "title": "test3",
-      "category": "Coréen",
-      "type": "Dessert",
-      "difficulty": 3,
-      "nbPeople": 5,
-      "duration": "19:51"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "fez"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "ezd",
-          "quantity": "1",
-          "unit": "kg"
-        }
-      ],
-      "id": "e1b48c37-0c34-4994-9ace-c2fff6988061",
-      "title": "rkdyusftgièze",
+      "id": "774a4738-5692-45f1-8ea9-225bbdc9dacc",
+      "title": "Pâtes aux poivrons et au chèvre",
       "description": "",
-      "category": "Japonais",
+      "category": "Italien",
+      "type": "Plat",
+      "difficulty": 1,
+      "nbPeople": 4,
+      "duration": "00:25",
+      "image": "https://upcdn.io/12a1z1Q/raw/uploads/2024/06/22/4kXXETeWCp-10329_w1024h768c1cx1250cy1875.jpg"
+    },
+    {
+      "instructions": [
+        {
+          "order": 1,
+          "text": "Faire chauffer la sauce tomate avec le double de son volume en eau, ajouter un peu de sel et de poivre."
+        },
+        {
+          "order": 2,
+          "text": "Etaler cette sauce sur le pain de mie (ne pas trop en mettre!)."
+        },
+        {
+          "order": 3,
+          "text": "Couper le jambon en petit dés, et mélanger avec les champignons."
+        },
+        {
+          "order": 4,
+          "text": "Partager le mélange jambon/champignons sur chaque tranches de pain de mie, puis saupoudrer de gruyère râpé."
+        },
+        {
+          "order": 5,
+          "text": "Placer au four 5 min, puis laisser sous le grill jusqu'à se que le gruyère soit fondu et un peu doré."
+        },
+        {
+          "order": 6,
+          "text": "Laisser un peu refroidir, puis couper en petites parts."
+        },
+        {
+          "order": 7,
+          "text": "Servir les mini pizzas de préférence tièdes."
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "Gruyère râpé",
+          "quantity": "1",
+          "unit": "poignée"
+        },
+        {
+          "name": "Jambon Blanc",
+          "quantity": "2",
+          "unit": "tranches"
+        },
+        {
+          "name": "Pain de mie",
+          "quantity": "5",
+          "unit": "tranches"
+        },
+        {
+          "name": "Concentré de tomates",
+          "quantity": "1",
+          "unit": "boite"
+        },
+        {
+          "name": "Champignon de paris",
+          "quantity": "1",
+          "unit": " boite"
+        }
+      ],
+      "id": "d7a275e7-05eb-4c56-a20a-ed0538b98224",
+      "title": "Mini pizzas reine",
+      "description": "",
+      "category": "Italien",
       "type": "Plat",
       "difficulty": 2,
-      "nbPeople": 2,
-      "duration": "12:43",
-      "image": "assets/default-recipe.png"
+      "nbPeople": 4,
+      "duration": "00:25",
+      "image": "https://upcdn.io/12a1z1Q/raw/uploads/2024/06/22/4kXXDP9MBB-35637_w1024h768c1cx1500cy1000.jpg"
     },
     {
       "instructions": [
         {
           "order": 1,
-          "text": "Ne rien faire"
+          "text": "Détailler le chocolat en pépites."
+        },
+        {
+          "order": 2,
+          "text": "Préchauffer le four à 180°C (thermostat 6). Dans un saladier, mettre 75 g de beurre, le sucre, l'oeuf entier, la vanille et mélanger le tout avec une cuillère en bois."
+        },
+        {
+          "order": 3,
+          "text": "Ajouter petit à petit la farine mélangée à la levure, le sel et le chocolat."
+        },
+        {
+          "order": 4,
+          "text": "Avec une feuille de papier essuie-tout, beurrer une plaque allant au four et former les cookies sur la plaque."
+        },
+        {
+          "order": 5,
+          "text": "Pour former les cookies, utiliser 2 cuillères à soupe et faire des petits tas espacés les uns des autres; ils grandiront à la cuisson."
+        },
+        {
+          "order": 6,
+          "text": "Enfourner pour 10 minutes de cuisson."
         }
       ],
       "ingredients": [
         {
-          "name": "ezd",
+          "name": "Levure chimique",
           "quantity": "1",
-          "unit": "kg"
+          "unit": "cuillère à café"
+        },
+        {
+          "name": "Sel",
+          "quantity": "1",
+          "unit": "cuillère à café"
+        },
+        {
+          "name": "Chocolat noir",
+          "quantity": "100",
+          "unit": "g"
+        },
+        {
+          "name": "Farine",
+          "quantity": "150",
+          "unit": "g"
+        },
+        {
+          "name": "Sucre vanillé",
+          "quantity": "1 ",
+          "unit": "sachet"
+        },
+        {
+          "name": "Sucre",
+          "quantity": "85",
+          "unit": "g"
+        },
+        {
+          "name": "Beurre tendre",
+          "quantity": "85",
+          "unit": "g"
+        },
+        {
+          "name": "Oeuf",
+          "quantity": "1",
+          "unit": "unité"
         }
       ],
-      "id": "41235967-4ec9-4da3-afad-d3e81394f061",
-      "title": "test categorie",
+      "id": "aafdca19-3ee8-4cd8-a0f6-310822039e8a",
+      "title": "Cookies maison",
       "description": "",
-      "category": "Mexicain",
-      "type": "Entré",
-      "difficulty": 5,
-      "nbPeople": 2,
-      "duration": "10:10",
-      "image": "assets/default-recipe.jpg"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "éplucher les pommes"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "Pommes",
-          "quantity": "3",
-          "unit": "kg"
-        }
-      ],
-      "id": "f6dc2811-e67d-4ff1-be5a-42ff25e0982e",
-      "title": "tarte ",
-      "description": "",
-      "category": "Coréen",
-      "type": "Plat",
-      "difficulty": 1,
-      "nbPeople": 2,
-      "duration": "22:53",
-      "image": "assets/default-recipe.png"
-    },
-    {
-      "instructions": [
-        {
-          "order": 1,
-          "text": "éplucher les pommes"
-        }
-      ],
-      "ingredients": [
-        {
-          "name": "Pommes",
-          "quantity": "3",
-          "unit": "kg"
-        }
-      ],
-      "id": "8134a67c-6e50-4368-97fd-38be81baf52c",
-      "title": "tarte ",
-      "description": "",
-      "category": "Coréen",
-      "type": "Plat",
-      "difficulty": 1,
-      "nbPeople": 1,
-      "duration": "22:03",
-      "image": "https://upcdn.io/12a1z1Q/raw/uploads/2024/06/21/4kXdEXm49N-Capture.png"
+      "category": "Pays-bas",
+      "type": "Dessert",
+      "difficulty": 3,
+      "nbPeople": 4,
+      "duration": "00:25",
+      "image": "https://upcdn.io/12a1z1Q/raw/uploads/2024/06/22/4kXXBddsJr-93153_w600.jpg"
     }
   ],
   "reviews": [
     {
-      "id": "1",
-      "recipeId": 363,
-      "author": "John Doe",
-      "date": "2024-06-20",
+      "id": "8e2a0d1a-791c-4dbc-9b9b-1919f51a8654",
+      "recipeId": "774a4738-5692-45f1-8ea9-225bbdc9dacc",
+      "userId": "5e10",
       "rating": 4,
-      "comment": "Great recipe!"
+      "comment": "Très bonne recette",
+      "date": "2024-06-22T13:08:57.971Z"
     },
     {
-      "id": "2",
-      "recipeId": 363,
-      "author": "Jane Smith",
-      "date": "2024-06-19",
+      "id": "5ff18812-9968-4da7-8085-af97581adae2",
+      "recipeId": "774a4738-5692-45f1-8ea9-225bbdc9dacc",
+      "userId": "IiQdrda",
       "rating": 5,
-      "comment": "Delicious!"
+      "comment": "J'adore",
+      "date": "2024-06-22T13:10:38.351Z"
     },
     {
-      "id": "3",
-      "recipeId": 363,
-      "author": "test",
-      "rating": 3,
-      "comment": "1",
-      "date": "2024-06-20T15:23:10.883Z"
-    },
-    {
-      "id": "4",
-      "recipeId": 363,
-      "author": "test",
-      "rating": 4,
-      "comment": "wow",
-      "date": "2024-06-20T15:30:24.381Z"
-    },
-    {
-      "id": "5",
-      "recipeId": 363,
-      "author": ",hhtd",
-      "rating": 4,
-      "comment": "regrreg",
-      "date": "2024-06-21T11:25:14.850Z"
-    },
-    {
-      "id": "6",
-      "recipeId": 363,
-      "author": "drg",
-      "rating": 4,
-      "comment": "ergr",
-      "date": "2024-06-21T13:57:32.492Z"
-    },
-    {
-      "id": "7",
-      "recipeId": "e1b48c37-0c34-4994-9ace-c2fff6988061",
-      "author": "fernand",
-      "rating": 3,
-      "comment": "parfait",
-      "date": "2024-06-21T17:31:41.515Z"
-    },
-    {
-      "id": "6f04557b-9f96-48a8-a70b-925622d3a204",
-      "recipeId": "363",
-      "userId": "BsUSzCp",
-      "rating": 4,
-      "comment": "test",
-      "date": "2024-06-22T07:38:18.415Z"
-    },
-    {
-      "id": "83c3d8ef-8a1c-486f-b0fc-9bdd95d41776",
-      "recipeId": "14",
-      "userId": "BsUSzCp",
-      "rating": 4,
-      "comment": "test",
-      "date": "2024-06-22T07:48:19.747Z"
-    },
-    {
-      "id": "623f345e-e84f-4373-8fa9-a8914a85e702",
-      "recipeId": "363",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "voil@",
-      "date": "2024-06-22T07:50:35.739Z"
-    },
-    {
-      "id": "95689772-5e3a-4412-a80f-3380d2ea3add",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "voil@",
-      "date": "2024-06-22T08:05:47.240Z"
-    },
-    {
-      "id": "975c48cd-4980-42d0-9455-f7fb4b5fadbf",
-      "recipeId": "363",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "mdr",
-      "date": "2024-06-22T08:21:11.389Z"
-    },
-    {
-      "id": "ec8f99c8-c918-46fc-a421-a24832fbab28",
-      "recipeId": "363",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "t2",
-      "date": "2024-06-22T08:25:27.209Z"
-    },
-    {
-      "id": "6b87394b-3d99-403c-b927-52d3e3b7fd2b",
-      "recipeId": "363",
-      "userId": "5e10",
-      "rating": 4,
-      "comment": "t3",
-      "date": "2024-06-22T08:27:17.266Z"
-    },
-    {
-      "id": "5a33c16a-b812-449c-b7fe-87a84561354a",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "t",
-      "date": "2024-06-22T08:29:22.331Z"
-    },
-    {
-      "id": "b22f5627-6a4c-4dc9-8b1e-1c8cd58133c5",
-      "recipeId": "363",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "t4",
-      "date": "2024-06-22T08:32:25.906Z"
-    },
-    {
-      "id": "04f7a06c-c53d-4f92-85fd-4851461c6029",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 4,
-      "comment": "a",
-      "date": "2024-06-22T08:34:25.224Z"
-    },
-    {
-      "id": "b4c49a12-88b2-4339-9af1-93261ac6f7de",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 4,
-      "comment": "a",
-      "date": "2024-06-22T08:35:08.252Z"
-    },
-    {
-      "id": "52233cf3-1573-42b1-8bc9-43afe0e743f8",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 4,
-      "comment": "a",
-      "date": "2024-06-22T08:35:13.114Z"
-    },
-    {
-      "id": "f3bd8a25-b6f7-495a-9157-de8178a0aa69",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "a",
-      "date": "2024-06-22T08:39:54.253Z"
-    },
-    {
-      "id": "ec4e6634-d9a2-4f3e-87d8-5507940a9c62",
-      "recipeId": "14",
-      "userId": "5e10",
-      "rating": 4,
-      "comment": "a",
-      "date": "2024-06-22T08:41:14.883Z"
-    },
-    {
-      "id": "402c4c44-3a07-4764-84df-dcd8b1ae2fbb",
-      "recipeId": "363",
-      "userId": "5e10",
-      "rating": 3,
-      "comment": "a",
-      "date": "2024-06-22T08:46:04.340Z"
+      "id": "4f46c58a-2a44-4f77-a085-26882427e4ae",
+      "recipeId": "774a4738-5692-45f1-8ea9-225bbdc9dacc",
+      "userId": "td2sgb_",
+      "rating": 5,
+      "comment": "C'était facile et très bon",
+      "date": "2024-06-22T13:12:22.974Z"
     }
   ]
 }

@@ -16,8 +16,7 @@ export class CarouselComponent implements OnInit {
     this.recipeService.getRecipes().subscribe((data: Recipe[]) => {
       this.recipes = data.slice(0, 3).map((recipe, index) => {
         return {
-          ...recipe,
-          image: `assets/recipe${index + 1}.jpg` 
+          ...recipe
         };
       });
 

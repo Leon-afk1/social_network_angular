@@ -11,24 +11,26 @@
       </div>
     </div>
     <div class="comments-section">
-      <h2>Commentaires Positifs</h2>
+      <h2>Quelques Commentaires</h2>
+      <div *ngIf="comments.length === 0">Aucun commentaire disponible</div>
       <div class="comment" *ngFor="let comment of comments">
-        <p>{{ comment.text }}</p>
+        <p>{{ comment.comment }}</p> 
         <div class="user-info">
-          <img [src]="comment.user.avatar" alt="{{ comment.user.username }}">
+          <a [routerLink]="['/user', comment.userId]">
+            <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
+          </a>
           <div class="user-details">
-            <strong>{{ comment.user.username }}</strong>
-            <p>{{ comment.user.description }}</p>
+            <a [routerLink]="['/user', comment.userId]"><strong>{{ comment.user?.username }}</strong></a>
+            <p>{{ comment.user?.description }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="categories-section">
-      <h2>Types de Recettes</h2>
+      <h2>Quelle catégorie voulez-vous cuisiner aujourd'hui ?</h2>
       <div class="categories">
         <button *ngFor="let category of categories" (click)="navigateToCategory(category)">{{ category }}</button>
       </div>
     </div>
   </div>
 </div>
-

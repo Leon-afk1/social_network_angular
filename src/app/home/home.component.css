@@ -78,9 +78,15 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  width: calc(33% - 40px);
+  width: calc(100% - 40px);
   max-width: 300px;
   box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .comment {
+    width: calc(33% - 40px);
+  }
 }
 
 .comment p {
@@ -110,8 +116,14 @@
   flex-direction: column;
 }
 
-.user-details strong {
+.user-details a {
+  text-decoration: none;
+  color: inherit;
   margin-bottom: 5px;
+}
+
+.user-details a:hover {
+  text-decoration: underline;
 }
 
 .categories-section .categories {

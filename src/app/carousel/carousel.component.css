@@ -1,5 +1,7 @@
 .carousel-inner {
   height: 400px;
+  display: flex;
+  align-items: center;
 }
 
 .carousel-inner img {
@@ -20,4 +22,19 @@
 
 .carousel-caption-item.active {
   display: block;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
 }
