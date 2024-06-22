@@ -1,34 +1,41 @@
 <div class="profile-container">
     <div class="profile">
       <div class="avatar">
-        <img [src]="user?.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
+        <img [src]="user.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
       </div>
       <div class="details">
         <div class="left-column">
           <div class="field">
             <label>Surname:</label>
-            <span>{{ user?.lastName }}</span>
+            <span *ngIf="!isEditing">{{ user.lastName }}</span>
+            <input *ngIf="isEditing" [(ngModel)]="user.lastName">
           </div>
           <div class="field">
             <label>First Name:</label>
-            <span>{{ user?.firstName }}</span>
+            <span *ngIf="!isEditing">{{ user.firstName }}</span>
+            <input *ngIf="isEditing" [(ngModel)]="user.firstName">
           </div>
           <div class="field">
             <label>Username:</label>
-            <span>{{ user?.username }}</span>
+            <span *ngIf="!isEditing">{{ user.username }}</span>
+            <input *ngIf="isEditing" [(ngModel)]="user.username">
           </div>
         </div>
         <div class="right-column">
           <div class="field">
             <label>Email:</label>
-            <span>{{ user?.email }}</span>
+            <span *ngIf="!isEditing">{{ user.email }}</span>
+            <input *ngIf="isEditing" [(ngModel)]="user.email">
           </div>
           <div class="field">
             <label>Description:</label>
-            <textarea readonly>{{ user?.description }}</textarea>
+            <textarea *ngIf="!isEditing" readonly>{{ user.description }}</textarea>
+            <textarea *ngIf="isEditing" [(ngModel)]="user.description"></textarea>
           </div>
         </div>
       </div>
+      <button *ngIf="isOwner" (click)="toggleEdit()">{{ isEditing ? 'Save' : 'Edit' }}</button>
+
     </div>
   </div>
   

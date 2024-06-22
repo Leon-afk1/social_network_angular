@@ -26,6 +26,15 @@
       "password": "test",
       "id": "td2sgb_",
       "avatar": "../assets/user3.jpg"
+    },
+    {
+      "id": "79ba14c0-77b1-4873-bbfa-c1c1409dbc00",
+      "firstName": "testaazeaze",
+      "lastName": "aze^pazêk",
+      "username": "testa",
+      "email": "testa@test.test",
+      "description": "azeazeaze",
+      "avatar": ""
     }
   ],
   "recipes": [
