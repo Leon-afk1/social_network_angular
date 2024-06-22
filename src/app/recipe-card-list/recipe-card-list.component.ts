@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../../classes/recipe';
+import { RecipeService } from '../recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-card-list',
@@ -14,7 +16,19 @@ export class RecipeCardListComponent implements OnInit {
   selectedCategory: string = '';
   selectedStyle: string = '';
 
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute) {}
+
   ngOnInit(): void {
+    this.recipeService.getRecipes().subscribe(recipes => {
+      this.recipes = recipes;
+      this.categories = this.recipeService.getUniqueCategories(recipes);
+      this.styles = this.recipeService.getUniqueStyles(recipes);
+      this.route.queryParamMap.subscribe(params => {
+        this.selectedCategory = params.get('category') || '';
+        this.selectedStyle = params.get('style') || '';
+        this.applyFilters();
+      });
+    });
     this.categories = this.getUniqueCategories(this.recipes);
     this.styles = this.getUniqueStyles(this.recipes);
     this.applyFilters();

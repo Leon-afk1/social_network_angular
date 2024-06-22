@@ -33,7 +33,7 @@ export class IngredientsService {
       return ingredient.imageURL;
     }else{
       let imageURL:string="assets/default-ingredient.png";
-      this.fetchImageFromUnsplash(ingredientName).subscribe(
+      await this.fetchImageFromUnsplash(ingredientName).subscribe(
         data => {
           console.log(data);
           let url = data.results[0].links.download;
