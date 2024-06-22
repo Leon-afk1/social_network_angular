@@ -36,6 +36,9 @@
     </ol>
   </div>
 
+  <app-stars-review [recipeId]="id"></app-stars-review>
+
+
   <app-recipe-reviews [recipeId]="id"></app-recipe-reviews>
   
   <app-add-review *ngIf="isUserLoggedIn()" [recipeId]="id" (reviewAdded)="onReviewAdded()"></app-add-review>

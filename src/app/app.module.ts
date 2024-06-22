@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './signin/signin.component';
 import { FooterComponent } from './footer/footer.component';
 import { UploadWidgetModule } from '@bytescale/upload-widget-angular';
+import { StarsReviewComponent } from './stars-review/stars-review.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { UploadWidgetModule } from '@bytescale/upload-widget-angular';
     AddReviewComponent,
     RecipeReviewsComponent,
     ImageUploadComponent,
+    StarsReviewComponent,
     LoginComponent,
     SignInComponent,
     FooterComponent
