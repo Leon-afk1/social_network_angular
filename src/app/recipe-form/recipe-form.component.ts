@@ -8,6 +8,7 @@ import { Recipe } from '../../classes/recipe';
 import { ImageUploadComponent } from '../image-upload/image-upload.component';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-recipe-form',
@@ -41,9 +42,10 @@ export class RecipeFormComponent implements OnInit {
   id?: string;
 
   constructor(
-    public recipeService: RecipeService, 
+    private recipeService: RecipeService,
+    private authService: AuthService,
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute,) {
+    private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id') || '';
   }
 
@@ -94,6 +96,7 @@ export class RecipeFormComponent implements OnInit {
   onFormSubmit() {
     this.markAllAsTouched(this.recipeForm);
     if (this.recipeForm.valid && this.imageURL) {
+      const userId = this.authService.getUserId() || '';
       const instructions: Instruction[] = this.instructions.value.map((text: string, index: number) => new Instruction(index + 1, text));
       const ingredients: Ingredient[] = this.ingredients.value.map((ing: any) => new Ingredient(ing.name, ing.quantity, ing.unit));
       const title = this.recipeForm.value.title || '';
@@ -105,6 +108,7 @@ export class RecipeFormComponent implements OnInit {
       const duration = this.recipeForm.value.duration || '00:00';
 
       const recipe = new Recipe(
+        userId,
         instructions,
         ingredients,
         "",

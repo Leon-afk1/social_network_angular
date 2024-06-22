@@ -3,6 +3,7 @@ import { Instruction } from "./instruction";
 
 export class Recipe {
   constructor(
+    public userId: string,
     public instructions: Instruction[],
     public ingredients: Ingredient[],
     public id: string,
@@ -13,8 +14,9 @@ export class Recipe {
     public difficulty: number,
     public nbPeople: number,
     public duration: string,
-    public image: string 
+    public image: string
   ) {
+    this.userId = userId;
     this.id = id;
     this.ingredients = ingredients;
     this.instructions = instructions;
