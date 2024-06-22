@@ -15,7 +15,8 @@
             </div>
         </li>
         <li *ngIf="authService.isLoggedIn()"><a (click)="logout()">Se déconnecter</a></li>
-        <li *ngIf="authService.isLoggedIn()"><a routerLink="/profile">Profil</a></li>
+        <li *ngIf="authService.isLoggedIn()"><a (click)="redirectToProfile()">Profil</a>
+        </li>
         <li><a routerLink="/recipes">Recettes</a></li>
         <li *ngIf="authService.isLoggedIn()"><a routerLink="/recipe-form">Créer une recette</a></li>
         <li *ngIf="!authService.isLoggedIn()"><a (click)="toggleSignIn()">Se connecter</a></li>

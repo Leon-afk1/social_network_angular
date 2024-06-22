@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { AuthService } from '../auth.service';
+import { User } from '../../classes/user'; // Import User class
 
 @Component({
   selector: 'app-signin',
@@ -24,45 +24,32 @@ export class SignInComponent {
     private authService: AuthService
   ) {
     this.signInForm = this.fb.group({
-      name: ['', [Validators.required]],
-      surname: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       username: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
 
-  get name(): AbstractControl | null {
-    return this.signInForm.get('name');
-  }
-
-  get surname(): AbstractControl | null {
-    return this.signInForm.get('surname');
-  }
-
-  get username(): AbstractControl | null {
-    return this.signInForm.get('username');
-  }
-
-  get email(): AbstractControl | null {
-    return this.signInForm.get('email');
-  }
-
-  get password(): AbstractControl | null {
-    return this.signInForm.get('password');
-  }
+  get firstName() { return this.signInForm.get('firstName'); }
+  get lastName() { return this.signInForm.get('lastName'); }
+  get username() { return this.signInForm.get('username'); }
+  get email() { return this.signInForm.get('email'); }
+  get password() { return this.signInForm.get('password'); }
 
   onSubmit() {
     if (this.signInForm.valid) {
-      const { name, surname, username, email, password } = this.signInForm.value;
+      const { firstName, lastName, username, email, password } = this.signInForm.value;
 
       this.checkEmailExists(email).subscribe(exists => {
         if (exists) {
           this.errorMessage = 'Email already exists';
         } else {
-          this.addUser({ name, surname, username, email, password }).subscribe(response => {
+          const newUser = new User(firstName, lastName, username, email, '', ''); // Create a new User instance
+          this.addUser(newUser).subscribe(response => {
             console.log('Sign In successful', response);
-            this.authService.setUserId(response.id);
+            this.authService.setUserId(response.id); // Assuming response has an 'id' field
             this.closeOverlay();
           }, error => {
             this.errorMessage = 'Error signing up. Please try again.';
@@ -84,7 +71,7 @@ export class SignInComponent {
     );
   }
 
-  addUser(user: any): Observable<any> {
+  addUser(user: User): Observable<any> {
     return this.http.post(this.apiUrl, user).pipe(
       catchError(error => {
         console.error('Error adding user:', error);
@@ -100,5 +87,15 @@ export class SignInComponent {
   openLoginOverlay() {
     this.showLogin.emit();
     this.closeOverlay();
+  }
+
+  onOverlayClick(event: MouseEvent) {
+    if ((event.target as HTMLElement).classList.contains('overlay')) {
+      this.closeOverlay();
+    }
+  }
+
+  onFormClick(event: MouseEvent) {
+    event.stopPropagation();
   }
 }

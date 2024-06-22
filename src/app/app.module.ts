@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
@@ -20,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { SignInComponent } from './signin/signin.component';
 import { FooterComponent } from './footer/footer.component';
 import { UploadWidgetModule } from '@bytescale/upload-widget-angular';
+import { StarsReviewComponent } from './stars-review/stars-review.component';
 
 
 @NgModule({
@@ -35,11 +37,13 @@ import { UploadWidgetModule } from '@bytescale/upload-widget-angular';
     AddReviewComponent,
     RecipeReviewsComponent,
     ImageUploadComponent,
+    StarsReviewComponent,
     LoginComponent,
     SignInComponent,
     FooterComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,

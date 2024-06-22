@@ -1,0 +1,9 @@
+<div *ngIf="averageRating !== undefined">
+    <p>Moyenne des avis : {{ averageRating.toFixed(2) }} / 5</p>
+    <div class="stars">
+      <span *ngFor="let star of [1, 2, 3, 4, 5]" class="star" [class.filled]="star <= averageRating">
+        ★
+      </span>
+    </div>
+  </div>
+  

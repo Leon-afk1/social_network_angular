@@ -67,4 +67,12 @@ export class LoginComponent {
   closeOverlay() {
     this.close.emit();
   }
+
+  onOverlayClick(event: MouseEvent) {
+    this.closeOverlay();
+  }
+
+  onFormClick(event: MouseEvent) {
+    event.stopPropagation();
+  }
 }

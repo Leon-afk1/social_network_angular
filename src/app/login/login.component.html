@@ -1,5 +1,5 @@
-<div class="overlay">
-  <div class="login-form">
+<div class="overlay" (click)="onOverlayClick($event)">
+  <div class="login-form" (click)="onFormClick($event)">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <label for="email">Email:</label>
       <input id="email" formControlName="email" type="email">
