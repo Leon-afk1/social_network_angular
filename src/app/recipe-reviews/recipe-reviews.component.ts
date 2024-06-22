@@ -20,7 +20,6 @@ export class RecipeReviewsComponent implements OnInit {
   }
 
   loadReviews(): void {
-    console.log('test1');
     this.reviewService.getReviews(this.recipeId).subscribe(reviews => {
       this.reviews = reviews;
       this.loadUsersForReviews(); 

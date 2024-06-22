@@ -63,4 +63,5 @@
 
 .recipe-card h3{
   font-size: 1em;
+  max-width: 80%; 
 }

@@ -17,7 +17,6 @@ export class SignInComponent {
   errorMessage: string = '';
   @Output() close = new EventEmitter<void>();
   @Output() showLogin = new EventEmitter<void>();
-  apiUrl = 'http://localhost:3000/users'; // JSON server URL
 
   constructor(
     private fb: FormBuilder,

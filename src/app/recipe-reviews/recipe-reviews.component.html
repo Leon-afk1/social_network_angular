@@ -3,7 +3,7 @@
   <div class="review-container" *ngFor="let review of reviews">
     <div class="review">
       <div class="review-header">
-        <a [routerLink]="['/user', review.userId]" class="review-author">
+        <a [routerLink]="['/profile', review.userId]" class="review-author">
           <img *ngIf="review.user?.avatar" [src]="review.user?.avatar" alt="{{ review.user?.username }}" class="avatar">
           <span *ngIf="!review.user?.avatar" class="avatar-placeholder"></span> 
           <span>{{ review.user?.username }}</span>

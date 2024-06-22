@@ -150,7 +150,7 @@ export class RecipeFormComponent implements OnInit {
   handleImageOutput(imageURL: string) {
     this.imageURL = imageURL;
   }
-
+ 
 
   setInputsToRecipe(recipe: Recipe){
     this.recipeForm = new FormGroup({

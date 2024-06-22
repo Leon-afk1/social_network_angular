@@ -1,78 +1,108 @@
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .profile {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 600px; /* Increased width */
-  }
-  
-  .avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-  }
-  
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .details {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .left-column,
-  .right-column {
-    flex: 1;
-    margin-right: 10px; /* Add spacing between columns */
-  }
-  
-  .field {
-    margin-bottom: 15px;
-  }
-  
-  .field label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  .field input,
-  .field textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
-  }
-  
-  .field textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  button {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.avatar {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.avatar img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.avatar button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.avatar button:hover {
+  background-color: #0056b3;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.field label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.field span,
+.field input,
+.field textarea {
+  flex: 1;
+}
+
+input,
+textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h2 {
+  margin: 20px 0;
+  font-size: 1.5em;
+}
+
+app-recipe-card-list {
+  width: 100%;
+}
