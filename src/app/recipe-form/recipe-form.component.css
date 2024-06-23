@@ -68,6 +68,10 @@ button.btn-secondary {
     cursor: pointer;
 }
 
+.button-after::after {
+    content: " ✔";
+}
+
 button.btn-secondary:hover {
     background-color: #001428; 
 }

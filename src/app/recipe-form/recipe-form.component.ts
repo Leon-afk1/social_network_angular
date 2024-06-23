@@ -7,7 +7,7 @@ import { Ingredient } from '../../classes/ingredient';
 import { Recipe } from '../../classes/recipe';
 import { ImageUploadComponent } from '../image-upload/image-upload.component';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -45,15 +45,18 @@ export class RecipeFormComponent implements OnInit {
     private recipeService: RecipeService,
     private authService: AuthService,
     private http: HttpClient,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private router: Router) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id') || '';
   }
 
   ngOnInit(): void {
     if(this.id != undefined && this.id != ''){
       this.recipeService.getRecipeByID(this.id).subscribe(recipe=>{
+        if(recipe.id != (this.authService.getUserId() || '')){
+          this.router.navigate(['/']);
+        }
         this.setInputsToRecipe(recipe);
-        console.log(recipe);
       })
     }
     this.recipeService.getTopCategories(10).subscribe(categories => {
@@ -142,6 +145,13 @@ export class RecipeFormComponent implements OnInit {
           }
         );
       }
+      //changer l'apparence du boutton
+      const button = document.querySelector('button[type="submit"].btn.btn-secondary');
+      if (button) {
+        (button as HTMLElement).style.backgroundColor = '#269701'; 
+        button.classList.add('button-after');
+      }
+
     } else {
       console.error('Form is invalid');
     }
@@ -185,6 +195,8 @@ export class RecipeFormComponent implements OnInit {
         unit: new FormControl(ingredient.unit)
       }));
     });
+    //set image
+    this.imageURL = recipe.image;
   }
 
   markAllAsTouched(formGroup: FormGroup | FormArray) {

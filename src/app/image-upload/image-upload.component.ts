@@ -16,8 +16,10 @@ export class ImageUploadComponent implements OnInit {
   };
 
   onComplete = (files: UploadWidgetResult[]) => {
-    this.imageURL = files[0]?.fileUrl;
-    this.imageURLOutput.emit(this.imageURL);
+    if(files[0]?.fileUrl != undefined){
+      this.imageURL = files[0]?.fileUrl;
+      this.imageURLOutput.emit(this.imageURL);
+    }
   };
 
   constructor(){}
