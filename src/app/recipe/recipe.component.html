@@ -1,5 +1,14 @@
 <div class="recipe-details">
-  <h1>{{ recipe.title }}</h1>
+  <div class="recipe-header">
+    <h1>{{ recipe.title }}</h1>
+    <div class="buttons" *ngIf="ownRecipe">
+      <button (click)="modifyRecipe()" class="btn btn-secondary">Modifier</button>
+      <!-- <button (click)="deleteRecipe()" class="btn btn-danger">Supprimer</button> -->
+    </div>
+  </div>
+  <div class="publisher">
+    Publié par <a [routerLink]="['/profile', recipe.userId]">{{username}}</a>
+  </div>
   
   <img [src]="recipe.image" alt="recipe image">
   <div class="description-header">

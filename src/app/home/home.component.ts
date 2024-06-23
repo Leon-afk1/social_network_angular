@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipeService.getTopCategories(4).subscribe(categories => {
-      console.log('Categories:', categories); 
       this.categories = categories;
     });
 
@@ -41,7 +40,6 @@ export class HomeComponent implements OnInit {
   loadUsersForComments(): void {
     this.comments.forEach(comment => {
       this.userService.getUserById(comment.userId).subscribe(user => {
-        console.log('User:', user);
         comment.user = user;
       });
     });

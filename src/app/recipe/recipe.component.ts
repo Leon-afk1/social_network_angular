@@ -3,7 +3,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../../classes/recipe';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecipeReviewsComponent } from '../recipe-reviews/recipe-reviews.component'; 
 import { StarsReviewComponent } from '../stars-review/stars-review.component';
@@ -23,12 +23,15 @@ export class RecipeComponent implements OnInit {
   recipe: Recipe = new Recipe('', [], [], '', '', '', '', '', 0, 0, '', '');
   id: string;
   ingredientsImages: { [name: string]: string } = {};
+  ownRecipe:boolean = false;
+  username:string = 'fernand';
 
   constructor(
     private recipeService: RecipeService,
     private ingredientService: IngredientsService,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id') || '';
   }
@@ -46,6 +49,10 @@ export class RecipeComponent implements OnInit {
       data.ingredients.forEach(async ingredient => {
         this.ingredientsImages[ingredient.name] = await this.ingredientService.getIngredientImage(ingredient.name);
       })
+      this.ownRecipe = data.userId == this.authService.getUserId();
+      this.authService.getUserById(data.userId).subscribe(user =>{
+        this.username = user.username.toString();
+      })
     });
   }
 
@@ -61,4 +68,19 @@ export class RecipeComponent implements OnInit {
       this.starsReviewComponent.refreshReviews();
     }
   }
+  modifyRecipe() {
+    this.router.navigate(['/recipe-form',this.recipe.id]);
+  }
+  // deleteRecipe() {
+  //   this.recipeService.removeRecipe(this.recipe.id).subscribe(
+  //     data =>{
+  //       console.log("Recipe deleted");
+  //       console.log(data);
+  //       this.router.navigate(['/']);
+  //     },
+  //     error => {
+  //       console.error("Error deleting recipe")
+  //     }
+  //   );
+  // }
 }

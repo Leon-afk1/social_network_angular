@@ -53,7 +53,7 @@ export class RecipeFormComponent implements OnInit {
   ngOnInit(): void {
     if(this.id != undefined && this.id != ''){
       this.recipeService.getRecipeByID(this.id).subscribe(recipe=>{
-        if(recipe.id != (this.authService.getUserId() || '')){
+        if(recipe.userId != (this.authService.getUserId() || '')){
           this.router.navigate(['/']);
         }
         this.setInputsToRecipe(recipe);

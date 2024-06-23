@@ -8,6 +8,24 @@
     align-items: center;
 }
 
+.recipe-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons{
+    display:flex;
+    gap: 0.5em;
+}
+
+button.btn-secondary {
+    background-color: #142864; 
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
 .description-header{
     display: flex;
     justify-content: center;
