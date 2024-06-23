@@ -21,7 +21,7 @@
     <div class="part-header">Ingrédients:</div>
     <div class="ingredients">
       <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
-        <img [src]="(ingredientsImages[ingredient.name] | async) || 'assets/icons/waiting.webp'" alt="{{ingredient.name}}">
+        <img [src]="ingredientsImages[ingredient.name] || 'assets/icons/waiting.webp'" alt="{{ingredient.name}}">
         {{ ingredient.quantity }} {{ ingredient.unit }} <br/> de {{ ingredient.name }}
       </div>
     </div>

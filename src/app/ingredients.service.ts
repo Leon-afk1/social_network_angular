@@ -30,17 +30,16 @@ export class IngredientsService {
       return ingredient.imageURL;
     }else{
       let imageURL:string="assets/default-ingredient.png";
-      await this.fetchImageFromUnsplash(ingredientName).subscribe(
-        data => {
-          let url = data.results[0].links.download;
-          this.saveImage(url, ingredientName);
-          imageURL = url;
-        },
-        error => {
-          console.error('Error fetching image from Unsplash:', error);
-          this.saveImage(imageURL, ingredientName);
-        }
-      )
+
+      try {
+        const data = await this.fetchImageFromUnsplash(ingredientName).toPromise();
+        let url = data.results[0].links.download;
+        imageURL = url;
+        this.saveImage(url, ingredientName);
+      } catch (error) {
+        console.error('Error fetching image from Unsplash:', error);
+        this.saveImage(imageURL, ingredientName);
+      }
       return imageURL;
     }
   }  

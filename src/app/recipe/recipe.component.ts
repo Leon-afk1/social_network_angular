@@ -18,7 +18,7 @@ export class RecipeComponent implements OnInit {
 
   recipe: Recipe = new Recipe('',[], [], '', '', '', '', '', 0, 0, '', '');
   id: string;
-  ingredientsImages: { [name: string]: Promise<string> } = {};
+  ingredientsImages: { [name: string]: string } = {};
 
   constructor(
     private recipeService: RecipeService,
@@ -39,8 +39,8 @@ export class RecipeComponent implements OnInit {
       if (this.recipeReviewsComponent) {
         this.recipeReviewsComponent.loadReviews();
       }
-      data.ingredients.forEach(ingredient => {
-        this.ingredientsImages[ingredient.name] = this.ingredientService.getIngredientImage(ingredient.name);
+      data.ingredients.forEach(async ingredient => {
+        this.ingredientsImages[ingredient.name] = await this.ingredientService.getIngredientImage(ingredient.name);
       })
     });
   }
