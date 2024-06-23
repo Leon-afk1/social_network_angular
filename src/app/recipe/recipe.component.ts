@@ -1,24 +1,28 @@
+// recipe.component.ts
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../../classes/recipe';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { RecipeReviewsComponent } from '../recipe-reviews/recipe-reviews.component'; // Importer RecipeReviewsComponent
+import { RecipeReviewsComponent } from '../recipe-reviews/recipe-reviews.component'; 
+import { StarsReviewComponent } from '../stars-review/stars-review.component';
 import { IngredientsService } from '../ingredients.service';
 import { IngredientImage } from '../../classes/ingredientImage';
 import { Ingredient } from '../../classes/ingredient';
+
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
 export class RecipeComponent implements OnInit {
-  // Déclaration de ViewChild pour RecipeReviewsComponent
   @ViewChild(RecipeReviewsComponent) recipeReviewsComponent: RecipeReviewsComponent | undefined;
+  @ViewChild(StarsReviewComponent) starsReviewComponent: StarsReviewComponent | undefined;
 
-  recipe: Recipe = new Recipe('',[], [], '', '', '', '', '', 0, 0, '', '');
+  recipe: Recipe = new Recipe('', [], [], '', '', '', '', '', 0, 0, '', '');
   id: string;
-  ingredientsImages: { [name: string]: Promise<string> } = {};
+  ingredientsImages: { [name: string]: string } = {};
 
   constructor(
     private recipeService: RecipeService,
@@ -39,8 +43,8 @@ export class RecipeComponent implements OnInit {
       if (this.recipeReviewsComponent) {
         this.recipeReviewsComponent.loadReviews();
       }
-      data.ingredients.forEach(ingredient => {
-        this.ingredientsImages[ingredient.name] = this.ingredientService.getIngredientImage(ingredient.name);
+      data.ingredients.forEach(async ingredient => {
+        this.ingredientsImages[ingredient.name] = await this.ingredientService.getIngredientImage(ingredient.name);
       })
     });
   }
@@ -50,10 +54,11 @@ export class RecipeComponent implements OnInit {
   }
 
   onReviewAdded(): void {
-    // Réponse à l'événement reviewAdded
     if (this.recipeReviewsComponent) {
       this.recipeReviewsComponent.loadReviews();
     }
+    if (this.starsReviewComponent) {
+      this.starsReviewComponent.refreshReviews();
+    }
   }
 }
-
