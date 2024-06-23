@@ -14,15 +14,17 @@
       <div class="comments-container">
         <div *ngIf="comments.length === 0" class="no-comments">Aucun commentaire disponible</div>
         <div class="comment" *ngFor="let comment of comments">
-          <p class="comment-text">{{ truncateText(comment.comment, 100) }}</p> 
-          <div class="user-info">
-            <a [routerLink]="['/profile', comment.userId]">
-              <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
-            </a>
-            <div class="user-details">
-              <a [routerLink]="['/user', comment.userId]">{{ comment.user?.username }}</a>
+          <a [routerLink]="['/recipe', comment.recipeId]" class="comment-link">
+            <p class="comment-text">{{ truncateText(comment.comment, 100) }}</p> 
+            <div class="user-info">
+              <a [routerLink]="['/profile', comment.userId]">
+                <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
+              </a>
+              <div class="user-details">
+                <a [routerLink]="['/user', comment.userId]">{{ comment.user?.username }}</a>
+              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
