@@ -26,7 +26,7 @@ export class RecipeComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    public ingredientService: IngredientsService,
+    private ingredientService: IngredientsService,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService
   ) {

@@ -20,12 +20,14 @@ export class IngredientsService {
     ingredientName = ingredientName.toLowerCase();
     let ingredientFetched: IngredientImage[] | undefined;
     let ingredient: IngredientImage | undefined;
+    
     ingredientFetched = await this.ingredientExists(ingredientName);
     if(ingredientFetched == undefined || ingredientFetched.length == 0){
       ingredient= undefined;
     }else{
       ingredient = ingredientFetched[0];
     }
+
     if(ingredient){
       return ingredient.imageURL;
     }else{
