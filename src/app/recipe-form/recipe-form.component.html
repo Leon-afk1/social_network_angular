@@ -1,9 +1,11 @@
 <form [formGroup]="recipeForm" class="recipe-form" (ngSubmit)="onFormSubmit()">
     <div class="recipe-form-header">
         <label for="inputTitle">Titre</label>
-        <input type="text" formControlName="title" id="inputTitle" placeholder="Tarte aux pommes">
-        <div class="validators" *ngIf="recipeForm.get('title')?.invalid && (recipeForm.get('title')?.dirty || recipeForm.get('title')?.touched)">
-            <small *ngIf="recipeForm.get('title')?.hasError('required')">Le titre est requis.</small>
+        <div class="title-and-validator">
+            <input type="text" formControlName="title" id="inputTitle" placeholder="Tarte aux pommes">
+            <div class="validators" *ngIf="recipeForm.get('title')?.invalid && (recipeForm.get('title')?.dirty || recipeForm.get('title')?.touched)">
+                <small *ngIf="recipeForm.get('title')?.hasError('required')">Le titre est requis.</small>
+            </div>
         </div>
         <button type="submit" class="btn btn-secondary">Enregistrer</button>
     </div>

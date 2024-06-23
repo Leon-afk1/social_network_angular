@@ -98,6 +98,10 @@ button.btn-danger {
     gap: 1em;
 }
 
+.recipe-form-header .title-and-validator{
+    flex-grow: 2;
+}
+
 .recipe-form-informations {
     display: flex;
     gap: 1em;
