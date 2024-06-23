@@ -3,29 +3,29 @@
 <div class="overlay" (click)="onOverlayClick($event)">
   <div class="signin-form" (click)="onFormClick($event)">
     <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-      <label for="firstName">First Name:</label>
+      <label for="firstName">Prénom :</label>
       <input id="firstName" formControlName="firstName" type="text">
-      <div *ngIf="firstName?.invalid && firstName?.touched" class="error">First Name is required</div>
+      <div *ngIf="firstName?.invalid && firstName?.touched" class="error">Entrez votre prénom</div>
       
-      <label for="lastName">Last Name:</label>
+      <label for="lastName">Nom:</label>
       <input id="lastName" formControlName="lastName" type="text">
-      <div *ngIf="lastName?.invalid && lastName?.touched" class="error">Last Name is required</div>
+      <div *ngIf="lastName?.invalid && lastName?.touched" class="error">Entrez votre nom</div>
       
-      <label for="username">Username:</label>
+      <label for="username">Nom d'utilisateur:</label>
       <input id="username" formControlName="username" type="text">
-      <div *ngIf="username?.invalid && username?.touched" class="error">Username is required</div>
+      <div *ngIf="username?.invalid && username?.touched" class="error">Entrez un nom d'utilisateur</div>
       
       <label for="email">Email:</label>
       <input id="email" formControlName="email" type="email">
-      <div *ngIf="email?.invalid && email?.touched" class="error">Valid email is required</div>
+      <div *ngIf="email?.invalid && email?.touched" class="error">Entrez un email valide</div>
       
-      <label for="password">Password:</label>
+      <label for="password">Mot de passe:</label>
       <input id="password" formControlName="password" type="password">
-      <div *ngIf="password?.invalid && password?.touched" class="error">Password is required</div>
+      <div *ngIf="password?.invalid && password?.touched" class="error">Entrez un mot de passe</div>
       
-      <button type="submit">Sign In</button>
-      <button type="button" (click)="openLoginOverlay()">Login</button>
-      <button type="button" (click)="closeOverlay()">Close</button>
+      <button type="submit">Enregistrer</button>
+      <button type="button" (click)="openLoginOverlay()">Deja membre ? Se connecter</button>
+      <button type="button" (click)="closeOverlay()">Fermer</button>
       
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     </form>

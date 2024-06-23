@@ -2363,6 +2363,14 @@
       "rating": 4,
       "comment": "Très bons cookies, mais j'ai trouvé qu'ils manquaient un peu de sucre.",
       "date": "2024-06-26T16:45:00.000Z"
+    },
+    {
+      "id": "a74a24da-f66a-45c7-86e6-3bd137073244",
+      "recipeId": "e4327a19-5d48-49ec-8e02-3fde84558ae9",
+      "userId": "8d4858d5-4eb2-4928-8b54-1a21d81344b2",
+      "rating": 1,
+      "comment": "Pas terrible ce tacos...",
+      "date": "2024-06-23T07:57:18.920Z"
     }
   ]
 }

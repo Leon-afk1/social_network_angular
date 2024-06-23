@@ -46,11 +46,11 @@ export class LoginComponent {
           this.authService.setUserId(user.id);
           this.closeOverlay();
         } else {
-          this.errorMessage = 'Invalid email or password';
+          this.errorMessage = 'Email ou mot de passe non valide.';
         }
       });
     } else {
-      this.errorMessage = 'Please fill in all required fields.';
+      this.errorMessage = 'Veuillez remplir tout les champs';
     }
   }
 

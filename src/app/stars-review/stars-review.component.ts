@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, input } from '@angular/core';
+// stars-review.component.ts
+
+import { Component, OnInit, Input } from '@angular/core';
 import { ReviewService } from '../review.service';
 import { Review } from '../../classes/review';
 
@@ -13,12 +15,10 @@ export class StarsReviewComponent implements OnInit {
   averageRating: number;
   reviews: Review[] = [];
 
-  constructor(private reviewService: ReviewService) {
-   }
+  constructor(private reviewService: ReviewService) {}
 
   ngOnInit(): void {
     this.getReviews();
-    
   }
 
   getReviews(): void {
@@ -37,13 +37,17 @@ export class StarsReviewComponent implements OnInit {
     }
   }
 
-  getStarWidth(index: number): number{
+  getStarWidth(index: number): number {
     let value = this.averageRating - index + 1;
-    if(value < 0){
+    if (value < 0) {
       return 0;
-    }else if(value >= 1){
+    } else if (value >= 1) {
       return 1;
     }
     return value;
+  }
+
+  refreshReviews(): void {
+    this.getReviews();
   }
 }
