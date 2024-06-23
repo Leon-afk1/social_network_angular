@@ -1,6 +1,7 @@
 <div class="overlay" (click)="onOverlayClick($event)">
   <div class="login-form" (click)="onFormClick($event)">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h2>Se connecter</h2>
       <label for="email">Email:</label>
       <input id="email" formControlName="email" type="email">
       <div *ngIf="email?.invalid && email?.touched" class="error">Email non valide.</div>
@@ -10,7 +11,7 @@
       <div *ngIf="password?.invalid && password?.touched" class="error">Entrez un mot de passe</div>
 
       <button type="submit">Se connecter</button>
-      <button type="button" (click)="closeOverlay()">Fermer</button>
+      <button type="button" class="close-button" (click)="closeOverlay()">Fermer</button>
 
       <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     </form>

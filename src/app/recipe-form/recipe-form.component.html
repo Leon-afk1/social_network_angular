@@ -5,7 +5,7 @@
         <div class="validators" *ngIf="recipeForm.get('title')?.invalid && (recipeForm.get('title')?.dirty || recipeForm.get('title')?.touched)">
             <small *ngIf="recipeForm.get('title')?.hasError('required')">Le titre est requis.</small>
         </div>
-        <button type="submit">Enregistrer</button>
+        <button type="submit" class="btn btn-secondary">Enregistrer</button>
     </div>
 
     <div class="recipe-form-informations">

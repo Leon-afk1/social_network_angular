@@ -5,12 +5,6 @@
     <h3>{{ recipe.title }}</h3>
   </div>
   <div class="recipe-card-body">
-       <!-- <div class="recipe-info">
-      <img src="assets/icons/duration.svg" alt="duration">
-      <div class="info-body">
-        {{ recipe.duration }}
-      </div>
-    </div> -->
     <div class="recipe-info">
       <div *ngIf="recipe.difficulty <= 4">
         <img src="assets/icons/difficulty-easy.svg" alt="difficulty">

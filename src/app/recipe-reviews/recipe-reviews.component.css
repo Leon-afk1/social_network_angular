@@ -1,11 +1,24 @@
+/* CSS pour les avis des utilisateurs avec cards */
+
 .reviews-section {
   margin-top: 20px;
   padding: 0 10px;
 }
 
-.review-container {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+.card {
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
 }
 
 .review-header {
@@ -13,13 +26,14 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
 .review-author {
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #007bff;
+  color: #007bff; 
   font-weight: bold;
   margin-right: 10px;
 }
@@ -33,21 +47,36 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
-  border: 2px solid #007bff;
+  border: 2px solid #007bff; 
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #f0f0f0; 
+}
+
+.username {
+  font-weight: bold;
 }
 
 .review-date {
   color: #777;
   font-size: 0.9em;
+  align-items: center;
 }
 
 .rating {
   display: flex;
   align-items: center;
+  margin-top: 5px;
 }
 
 .rating-stars {
-  color: #ffc107;
+  color: #ffc107; 
   font-size: 1.2em;
   line-height: 1;
 }
@@ -62,7 +91,6 @@
   margin-top: 10px;
   font-size: 1em;
   color: #333;
-  flex-grow: 1;
 }
 
 .no-reviews {

@@ -1,82 +1,96 @@
 .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .profile {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 600px; /* Increased width */
-  }
-  
-  .avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-  }
-  
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .details {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .left-column,
-  .right-column {
-    flex: 1;
-    margin-right: 10px; /* Add spacing between columns */
-  }
-  
-  .field {
-    margin-bottom: 15px;
-  }
-  
-  .field label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  .field input,
-  .field textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
-  }
-  
-  .field textarea {
-    resize: vertical;
-    height: 100px;
-  }
-  
-  button {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .app-image-upload {
-    margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-  
-  button:hover {
-    background-color: #0056b3;
+
+.profile {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 4px solid #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.columns {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.field textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .columns {
+    flex-direction: column;
   }
-  
+}

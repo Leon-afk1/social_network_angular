@@ -1,10 +1,10 @@
-<!-- recipe.component.html -->
-
 <div class="recipe-details">
   <h1>{{ recipe.title }}</h1>
   
   <img [src]="recipe.image" alt="recipe image">
-  <p>{{recipe.description}}</p>
+  <div class="description-header">
+    <p>{{recipe.description}}</p>
+  </div>
   <div class="recipe-informations">
     <div class="info">
       <strong>Durée:</strong> {{ recipe.duration }}
@@ -22,7 +22,8 @@
     <div class="ingredients">
       <div class="ingredient" *ngFor="let ingredient of recipe.ingredients">
         <img [src]="(ingredientsImages[ingredient.name] | async) || 'assets/icons/waiting.webp'" alt="{{ingredient.name}}">
-        {{ ingredient.quantity }} {{ ingredient.unit }} <br/> de {{ ingredient.name }}
+        <span>{{ ingredient.quantity }} {{ ingredient.unit }}</span>
+        <span>de {{ ingredient.name }}</span>
       </div>
     </div>
   </div>
@@ -37,7 +38,6 @@
   </div>
 
   <app-stars-review [recipeId]="id"></app-stars-review>
-
 
   <app-recipe-reviews [recipeId]="id"></app-recipe-reviews>
   

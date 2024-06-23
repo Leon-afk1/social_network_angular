@@ -1,9 +1,15 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffee;
-  color: #000014;
   padding: 20px;
   min-height: 100vh;
   width: 100%;
@@ -16,12 +22,14 @@
   justify-content: center;
   padding: 20px;
   background-color: #001428;
-  color: #ffffff;
+  color: #f9f9f9;
   width: 100%;
 }
 
 .header h1 {
   margin: 0;
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
 .content {
@@ -32,41 +40,63 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.recipes-section,
-.comments-section,
-.categories-section {
+.section {
   width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
+  padding: 20px;
   text-align: center;
 }
 
-.recipes-section h2,
-.comments-section h2,
-.categories-section h2 {
+.section h2 {
   color: #142864;
+  font-size: 1.75em;
+  margin-bottom: 20px;
+}
+
+.recipes-section {
+  text-align: center;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-container app-carousel {
+  width: 100%;
 }
 
 .comments-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
   padding: 20px;
+  width: 100%;
 }
 
-.comments-section h2 {
-  width: 100%;
-  text-align: center;
-  color: #142864;
-  margin-bottom: 20px;
+.no-comments {
+  font-style: italic;
+  color: #999;
 }
 
 .comment {
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -76,6 +106,12 @@
   width: calc(100% - 40px);
   max-width: 300px;
   box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.comment:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .comment p {
@@ -112,10 +148,12 @@
   text-decoration: none;
   color: inherit;
   margin-bottom: 5px;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .user-details a:hover {
-  text-decoration: underline;
+  color: #0056b3;
 }
 
 .categories-section .categories {
@@ -134,24 +172,12 @@
   background-color: #001428;
   color: #ffffff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .categories-section .categories button:hover {
   background-color: #142864;
-}
-
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.carousel-container app-carousel {
-  width: 100%;
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
@@ -159,4 +185,11 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #ffffff;
 }

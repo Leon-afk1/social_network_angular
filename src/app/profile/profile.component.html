@@ -1,12 +1,13 @@
 <div class="profile-container">
-    <div class="profile">
-      <div class="avatar">
-        <img *ngIf="!isEditing" [src]="user.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
-      </div>
-      <app-image-upload *ngIf="isEditing" [imageURL]="user.avatar" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
+  <div class="profile">
+    <div class="avatar">
+      <img *ngIf="!isEditing" [src]="user.avatar || 'assets/default-avatar.png'" alt="Profile Picture">
+    </div>
+    <app-image-upload *ngIf="isEditing" [imageURL]="user.avatar" (imageURLOutput)="handleImageOutput($event)"></app-image-upload>
 
-      <div class="details">
-        <div class="left-column">
+    <div class="details">
+      <div class="columns">
+        <div class="column">
           <div class="field">
             <label>Nom:</label>
             <span *ngIf="!isEditing">{{ user.lastName }}</span>
@@ -23,7 +24,7 @@
             <input *ngIf="isEditing" [(ngModel)]="user.username">
           </div>
         </div>
-        <div class="right-column">
+        <div class="column">
           <div class="field">
             <label>Email:</label>
             <span *ngIf="!isEditing">{{ user.email }}</span>
@@ -36,10 +37,11 @@
           </div>
         </div>
       </div>
-      <button *ngIf="isOwner" (click)="toggleEdit()">{{ isEditing ? 'Save' : 'Edit' }}</button>
 
-      <h2>Recettes :</h2>
-      <app-recipe-card-list [recipes]="recipes"></app-recipe-card-list>
+      <button *ngIf="isOwner" (click)="toggleEdit()">{{ isEditing ? 'Sauvegarder' : 'Modifier' }}</button>
     </div>
+
+    <h2>Recettes :</h2>
+    <app-recipe-card-list [recipes]="recipes"></app-recipe-card-list>
   </div>
-  
+</div>

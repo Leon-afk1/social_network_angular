@@ -1,4 +1,3 @@
-/* Style global pour le formulaire */
 .recipe-form {
     margin: 2em auto;
     padding: 2em;
@@ -15,6 +14,7 @@ label {
     font-weight: bold;
     margin-bottom: 0.5em;
     display: block;
+    color: #495057; 
 }
 
 input[type="text"],
@@ -24,7 +24,7 @@ select,
 textarea {
     width: 100%;
     padding: 0.75em;
-    border: 1px solid #ccc;
+    border: 1px solid #ced4da;
     border-radius: 4px;
     box-sizing: border-box;
     margin-top: 0.5em;
@@ -38,7 +38,7 @@ input[type="number"]:focus,
 input[type="time"]:focus,
 select:focus,
 textarea:focus {
-    border-color: #007bff;
+    border-color: #007bff; 
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
@@ -51,38 +51,37 @@ button {
 }
 
 button.btn-primary {
-    background-color: #007bff;
+    background-color: #007bff; 
     border: none;
     color: white;
     cursor: pointer;
 }
 
 button.btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; 
 }
 
 button.btn-secondary {
-    background-color: #6c757d;
+    background-color: #142864; 
     border: none;
     color: white;
     cursor: pointer;
 }
 
 button.btn-secondary:hover {
-    background-color: #5a6268;
+    background-color: #001428; 
 }
 
 button.btn-danger {
-    background-color: #dc3545;
+    background-color: #dc3545; 
     border: none;
     color: white;
     cursor: pointer;
 }
 
 button.btn-danger:hover {
-    background-color: #c82333;
+    background-color: #c82333; 
 }
-
 
 button.btn-secondary,
 button.btn-danger {
@@ -93,75 +92,76 @@ button.btn-danger {
     margin-top: 2em;
 }
 
-.recipe-form-header{
+.recipe-form-header {
     display: flex;
     align-items: baseline;
     gap: 1em;
 }
 
-.recipe-form-informations{
-    display:flex;
-    gap: 1em;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.recipe-form-informations input{
-    max-width: 10em;
-}
-
-.form-recipe-content{
+.recipe-form-informations {
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
     justify-content: center;
 }
-.form-recipe-image-description{
+
+.recipe-form-informations input {
+    max-width: 10em;
+}
+
+.form-recipe-content {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-recipe-image-description {
     max-width: 400px;
     flex-shrink: 10;
 }
 
-.form-recipe-text{
+.form-recipe-text {
     min-width: 300px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 1em;
     flex-grow: 2;
 }
 
-.validators{
-    color: #c82333;
+.validators {
+    color: #dc3545; 
 }
 
-.form-instructions{
+.form-instructions {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.form-instruction{
+.form-instruction {
     display: flex;
     flex-direction: column;
 }
 
-.form-ingredients{
+.form-ingredients {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.form-ingredient{
-    width:100%;
+.form-ingredient {
+    width: 100%;
     display: flex;
-    gap:0.5em;
+    gap: 0.5em;
 }
 
-.form-ingredient .ingredient-info{
+.form-ingredient .ingredient-info {
     flex-grow: 2;
 }
 
-.form-ingredient button{
-    flex-grow:0;
+.form-ingredient button {
+    flex-grow: 0;
     height: 50%;
     align-self: end;
     margin-bottom: 0.5em;

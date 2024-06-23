@@ -3,7 +3,7 @@
   width: 12em;
   height: 17em;
   border-radius: 3em;
-  background-color: rgb(186, 202, 255);
+  background-color: #bad1e9;
   text-align: center;
   justify-content: center;
   display: flex;
@@ -39,7 +39,7 @@
   width: 12em;
   height: 17em;
   border-radius: 3em;
-  background-color: rgb(186, 202, 255);
+  background-color: #bad1e9;
   display: flex;
   flex-direction: column;
   gap: 1em;

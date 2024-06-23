@@ -29,17 +29,17 @@
 }
 
 html, body {
-  height: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background-color: #ffffee;
-
+  background-color: #bad1e9;
+  margin-bottom: 60px;
 }
 
 .app-content {
@@ -48,4 +48,31 @@ body {
 
 .footer {
   flex-shrink: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #0056b3;
+  font-weight: 600;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+button {
+  font-family: 'Helvetica Neue', sans-serif;
+  cursor: pointer;
 }

@@ -1,31 +1,32 @@
 <div class="home-container">
   <div class="header">
     <h1>MarmiBon</h1>
-    <!-- <img src="assets/logo.png" alt="Logo" class="logo"> -->
   </div>
   <div class="content">
-    <div class="recipes-section">
+    <div class="section recipes-section">
       <h2>Nos Recettes</h2>
       <div class="carousel-container">
         <app-carousel></app-carousel>
       </div>
     </div>
-    <div class="comments-section">
+    <div class="section comments-section">
       <h2>Quelques Commentaires</h2>
-      <div *ngIf="comments.length === 0">Aucun commentaire disponible</div>
-      <div class="comment" *ngFor="let comment of comments">
-        <p class="comment-text">{{ truncateText(comment.comment, 100) }}</p> 
-        <div class="user-info">
-          <a [routerLink]="['/profile', comment.userId]">
-            <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
-          </a>
-          <div class="user-details">
-            <a [routerLink]="['/user', comment.userId]">{{ comment.user?.username }}</a>
+      <div class="comments-container">
+        <div *ngIf="comments.length === 0" class="no-comments">Aucun commentaire disponible</div>
+        <div class="comment" *ngFor="let comment of comments">
+          <p class="comment-text">{{ truncateText(comment.comment, 100) }}</p> 
+          <div class="user-info">
+            <a [routerLink]="['/profile', comment.userId]">
+              <img *ngIf="comment.user?.avatar" [src]="comment.user?.avatar" alt="{{ comment.user?.username }}">
+            </a>
+            <div class="user-details">
+              <a [routerLink]="['/user', comment.userId]">{{ comment.user?.username }}</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="categories-section">
+    <div class="section categories-section">
       <h2>Quelle catégorie voulez-vous cuisiner aujourd'hui ?</h2>
       <div class="categories">
         <button *ngFor="let category of categories" (click)="navigateToCategory(category)">{{ category }}</button>

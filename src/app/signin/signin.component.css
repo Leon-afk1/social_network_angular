@@ -1,4 +1,3 @@
-/* Overlay styles */
 .overlay {
   position: fixed;
   top: 0;
@@ -9,9 +8,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; 
 }
 
-/* Signin form specific styles */
 .signin-form {
   background-color: white;
   padding: 20px;
@@ -19,19 +18,23 @@
   width: 90%;
   max-width: 400px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  position: relative; /* Ensure relative positioning for error messages */
+  position: relative;
   display: flex;
-  flex-direction: column; /* Arrange form elements in a column */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; 
+  overflow-y: auto; 
+  max-height: calc(100vh - 100px); 
+  margin-bottom: 20px; 
 }
 
 .signin-form label {
   display: block;
   margin-bottom: 5px;
-  color: black; /* Adjusted label text color */
+  color: black;
   font-weight: bold;
-  width: 100%; /* Ensure labels take full width */
+  width: 100%;
 }
 
 .signin-form input {
@@ -62,5 +65,30 @@
   font-size: 14px;
   margin-top: 5px;
   width: 100%;
-  text-align: center; /* Center error message */
+  text-align: center;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+  font-weight: bold;
+  width: 100%;
+}
+
+.form-group input {
+  width: 100%; 
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
